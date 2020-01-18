@@ -1,0 +1,70 @@
+body {
+    background-color: grey;
+}
+
+#background_blue {
+    background-color: navy;
+    color: white;
+}
+
+#background_blue_inverse {
+    background-color: white;
+    color: navy;
+}
+
+#background_green {
+    background-color: green;
+    color: white;
+}
+
+#background_green_inverse {
+    background-color: white;
+    color: green;
+}
+
+#background_white {
+    background-color: white;
+    color: black;
+}
+
+#background_white_inverse {
+    background-color: black;
+    color: white;
+}
+
+/* *** Can't use class if I want to dynamically change the color value *** */
+.div1 {
+    background-color: navy;
+    color: white;
+}
+.div1:hover {
+    background-color: white;
+    color: navy;
+}
+/* *** changing to ID - had to be ID to for dynamic color change *** */
+#div1 {
+    background-color: navy;
+    color: white;
+}
+#div1:hover {
+    background-color: white;
+    color: navy;
+}
+
+.div2 {
+    background-color: green;
+    color: white;
+}
+.div2:hover {
+    background-color: white;
+    color: green;
+}
+
+.div3 {
+    background-color: black;
+    color: white;
+}
+.div3:hover {
+    background-color: white;
+    color: black;
+}
