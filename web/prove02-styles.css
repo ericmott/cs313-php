@@ -1,0 +1,76 @@
+body {
+    background-color: slategray;
+}
+
+ul {
+    list-style: none;
+}
+ul a {
+    background-color: slategray;
+    color: white;
+    display: inline-block;
+    margin: 2px;
+    padding: 2px;
+    text-decoration: none;
+    width: 80%;
+}
+
+a:visited {
+    color: white;
+    padding: 3px 3px;
+    text-decoration: none;
+}
+a:hover {
+    background-color: slategray;
+    color: black;
+}
+
+/* *** Standard color combinations *** */
+.blu-wht {
+    background-color: rgb(5, 9, 68);
+    color: white;
+}
+
+.container-1 {
+    display: flex;
+    justify-content: space-around;
+    flex-basis: 10%;
+    background-color: rgb(177, 177, 189);
+}
+.container-2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 10%;
+    background-color: rgb(177, 177, 189);
+}
+.container-2 div{
+    flex-wrap: nowrap;
+}
+.charge {
+    padding-top: 5px;
+    padding-right: 2px;
+    margin-right: 3px;
+}
+
+.info1 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 2px;
+    padding: 2px;
+}
+
+.info2 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: right;
+}
+
+/* *** Font Colors *** */
+.txt-wht {color: white;}
+.txt-blk {color: black;}
+.txt-blu {color: rgb(5, 9, 68);}
+
+/* *** Text Alignment *** */
+#txt-center {text-align: center;}
+.txt-left {text-align: left;}
+.txt-right {text-align: right;}
