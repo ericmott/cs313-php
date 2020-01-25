@@ -16,6 +16,7 @@ session_start();
 <?php
 // add 1 to total quantity of shorts
 $_SESSION["totalShortsQty"] += 1;
+return $_SESSION["totalShortsQty"];
 ?>
     
 </body>
