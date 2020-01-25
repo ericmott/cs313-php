@@ -2,6 +2,16 @@
 session_start();
 ?>
 
+
+<?php
+// add 1 to total quantity of shorts
+$_SESSION["totalShortsQty"] = 12;
+$test = $_SESSION["totalShortsQty"]
+return $test;
+// return $_SESSION["totalShortsQty"];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +22,12 @@ session_start();
     <link rel="stylesheet" href="prove03-styles.css">
 </head>
 <body>
+    <script>
+        var shortsTotal = "<?php echo $test; ?>"
+    </script>
 
-<?php
-// add 1 to total quantity of shorts
-$_SESSION["totalShortsQty"] += 1;
-return $_SESSION["totalShortsQty"];
-?>
+
+<!-- <a> test2 </a> -->
     
 </body>
 </html>
