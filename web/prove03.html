@@ -1,5 +1,18 @@
+<?php
+session_start();
+?>
+
+<!-- Set Session Variables -->
+<?php
+$_SESSION["totalCartQty"] = 0;
+$_SESSION["totalShortsQty"] = 0;
+$_SESSION["totalJacketQty"] = 0;
+$_SESSION["totalWatchQty"] = 0;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +20,11 @@
     <title>Eric Mott - Prove 03</title>
     <link rel="stylesheet" href="prove03-styles.css">
 </head>
+
 <body>
-    <header class="blu-wht">
-        <h1>Prove 03 - Under Construction</h1>
+    <header>
+        <h1 class="font-wht">Prove 03</h1>
+        <hr>
         <nav>
             <ul>
                 <li><a href="prove02.html">Week 02</a></li>
@@ -22,8 +37,62 @@
                 <li><a href="prove02-index.html">Root</a></li>
             </ul>
         </nav>
+        <hr>
+
     </header>
-    <script src="prove02-script.js"></script>
-    
+    <main>
+        <form>
+            <form action="prove03-php.php" method="POST">
+                <!-- <form method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> -->
+                <!-- <form action="prove03-php.php" method="POST"> -->
+                <div>
+                    <h1 class="font-papyrus-center">Select Your Items</h1>
+                </div>
+
+                <div>
+                    <table>
+                        <caption>The Red Fin Collection</caption>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <!-- <th>Qty</th> _-->
+                            <th>Add to Cart</th>
+
+                        </tr>
+                        <tr>
+                            <td>Red Fin Shorts</td>
+                            <td>35.00</td>
+                            <!-- <td><input type="number" id="qtyShorts" name="qtyShorts" oninput="checkQty()"></td> -->
+                            <td><button type="button" onclick="addShorts()">Add to Cart</button></td>
+                            <!-- <td><button type="button" onclick="<?php $_SESSION["totalShortsQty"] += 1; ?></button>>">Add to Cart</button></td> -->
+                            <!-- Make button-->
+                        </tr>
+                        <tr>
+                            <td>Red Fin Milo Jacket</td>
+                            <td>127.00</td>
+                            <!-- <td><input type="number" id="qtyJacket" name="qtyJacket" oninput="checkQty()"></td> -->
+                            <td><button type="button" onclick="addJacket()">Add to Cart</button></td>
+                            <!-- Make button-->
+                        </tr>
+                        <tr>
+                            <td>Red Fin Watch</td>
+                            <td>225.00</td>
+                            <!-- <td><input type="number" id="qtyWatch" name="qtyWatch" oninput="checkQty()"></td> -->
+                            <td><button type="button" onclick="addWatch()">Add to Cart</button></td>
+                            <!-- Make button-->
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h3 class="font-wht">Items in cart: <a name="cartTotal" id="cartTotal">0</a></h3>
+                </div>
+            </form>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script src="prove03-scripts.js"></script>
 </body>
+
 </html>

@@ -31,6 +31,18 @@ a:hover {
     color: white;
 }
 
+.font_title {
+    font-family: papyrus;
+}
+
+.main_nav {
+    text-align: center;
+    width: 100px;
+    padding: 4px;
+    text-decoration: none;
+    background-color: yellowgreen;
+}
+
 .container-1 {
     display: flex;
     justify-content: space-around;
