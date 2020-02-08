@@ -25,5 +25,6 @@ catch (PDOException $ex)
 }
 return $db;
 }
+
 ?>
 
