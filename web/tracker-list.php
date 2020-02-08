@@ -71,12 +71,12 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //     echo '<br/>';
         // }
         foreach ($items as $item) {
-            $itemId = $item['itemId'];
-            $itemDescription = $item['itemDescription'];
+            $itemId = $item['itemid'];
+            $itemDescription = $item['itemdescription'];
             $model = $item['model'];
-            $serialNumber = $item['serialNumber'];
-            $purchasePrice = $item['purchasePrice'];
-            $purchaseDate = $item['purchaseDate'];
+            $serialNumber = $item['serialnumber'];
+            $purchasePrice = $item['purchaseprice'];
+            $purchaseDate = $item['purchasedate'];
 
             echo "<li><p>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate";
 
