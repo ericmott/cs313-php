@@ -1,34 +1,19 @@
 <?php
-function get_db(){
-    $db = NULL;
+require('dbConnect.php');
+$db = get_db();
 
-try
-{
-    $dbUrl = getenv('DATABASE_URL');
+// From the reading:
+// $stmt = $db->prepare('SELECT * FROM table WHERE id=:id AND name=:name');
+// $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+// $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+// $stmt->execute();
+// $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $dbOpts = parse_url($dbUrl);
+$query = 'SELECT itemId, itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item';
+$stmt = $db->prepare($query);
+$stmt->execute();
+$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if (!isset($dbUrl) || empty($dbUrl)) {
-        $dbUrl = "postgres://motte:N0lanM@xK8data@localhost:5432/DATABASE";
-    }
-
-    $dbHost = $dbOpts["host"];
-    $dbPort = $dbOpts["port"];
-    $dbUser = $dbOpts["user"];
-    $dbPassword = $dbOpts["pass"];
-    $dbName = ltrim($dbOpts["path"],'/');
-
-    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ATTR_ERRMODE_EXCEPTION);
-}
-catch (PDOException $ex)
-{
-    echo 'Error!: ' - $ex->getMessage();
-    die();
-}
-return $db;
-}
 ?>
 
 <!DOCTYPE html>
@@ -57,9 +42,20 @@ return $db;
 
     <main>
         <?php
-        foreach ($db->('SELECT id, itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item') as $row) {
-            echo "<div>" "Item: " . $row["itemDescription"] . " | Model: " . $row["model"] . " | S/N: " . $row["serialNumber"] . " | Purchase Price $" . $row["purchasePrice"] . " | Date Purchased: " . $row["purchaseDate"];
-            echo '<br/>';
+        // foreach ($db->('SELECT itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item') as $row) {
+        //     echo "<div>" "Item: " . $row["itemDescription"] . " | Model: " . $row["model"] . " | S/N: " . $row["serialNumber"] . " | Purchase Price $" . $row["purchasePrice"] . " | Date Purchased: " . $row["purchaseDate"];
+        //     echo '<br/>';
+        // }
+        foreach ($items as $item) {
+            $itemId = $item['itemId'];
+            $itemDescription = $item['itemDescription'];
+            $model = $item['model'];
+            $serialNumber = $item['serialNumber'];
+            $purchasePrice = $item['purchasePrice'];
+            $purchaseDate = $item['purchaseDate'];
+
+            echo "<li><p>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate";
+
         }
         ?>
 
