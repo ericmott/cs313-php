@@ -78,7 +78,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $purchasePrice = $item['purchaseprice'];
             $purchaseDate = $item['purchasedate'];
 
-            echo "<li><p>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate";
+            echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate";
 
         }
         ?>
