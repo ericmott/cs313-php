@@ -33,10 +33,26 @@ catch (PDOException $ex)
 // $stmt->execute();
 // $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$query = 'SELECT itemId, itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item';
+// Get data from item table
+$query = 'SELECT itemId, itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item
+     JOIN store on item.store_id = storeId
+     JOIN room on item.room_id = roomId
+     JOIN ownedBy on item.ownerId = ownedById';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Get data from store table
+// $query = 'SELECT storeId, storeName FROM store';
+// $stmt1 = $db->prepare($query);
+// $stmt1->execute();
+// $stores = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+
+// Get data from room table
+// $query = 'SELECT roomId, room FROM room';
+// $stmt2 = $db->prepare($query);
+// $stmt2->execute();
+// $rooms = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
