@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Eric Mott - Prove 5</title>
-    <link rel="stylesheet" href="prove05-styles.css">
+    <link rel="stylesheet" href="cs313-styles.css">
 </head>
+
 <body>
-    <header class="blu-wht">
-        <h1>Prove 05 - Under Construction</h1>
+    <header>
+        <h1>Prove 05 - PHP Data Access</h1>
         <nav>
             <ul>
                 <li><a href="prove02.html">Week 02</a></li>
@@ -19,11 +21,48 @@
                 <li><a href="prove06.html">Week 06</a></li>
                 <li><a href="prove07.html">Week 07</a></li>
                 <li><a href="prove08.html">Week 08</a></li>
-                <li><a href="prove02-index.html">Root</a></li>
+                <li><a href="index.html">Root</a></li>
             </ul>
         </nav>
+        <hr>
+        <h1>Household Inventory Tracker</h1>
+        <hr>
     </header>
+
+    <main>
+        <div>
+            <p class="text-main-gry-blk">This app helps the user to keep 
+                track of their assets.  It allows the user to record the 
+                item, its model, serial number, purchase price, place 
+                purchased, and storage location.  This will aid the user 
+                if an insurance claim is ever required to replace the 
+                item(s) in the event of a loss.</p>
+        </div>
+        <div class="container-1">
+            <div>
+                <!-- Add Item Button -->
+                <form action="tracker-add.html">
+                <button class="button-std" type="submit" title="Add New Item">Add Item</button>
+            </form>
+            </div>
+            <div>
+                <!-- Add Show Items Button -->
+                <form action="tracker-list.php">
+                <button class="button-std" href="tracker-list.php" title="Show List of Items">Show List</button>
+            </form>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="blu-wht">
+            <p style="margin-left:10px;">&copy; Eric Mott, 2020</p>
+        </div>
+    </footer>
+
     <script src="prove02-script.js"></script>
-    
+
 </body>
+
 </html>

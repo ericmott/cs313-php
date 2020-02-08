@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inventory Tracker - Add Item</title>
+    <link rel="stylesheet" href="cs313-styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Household Inventory Tracker</h1>
+        <nav>
+            <ul>
+                <li><a href="prove05.html">Home</a></li>
+            </ul>
+        </nav>
+        <hr>
+        <h1>Add Items</h1>
+        <hr>
+    </header>
+
+    <main>
+        <form action="tracker-add.php" method="POST" class="entry-form">
+            <div>
+                <!-- Item Description -->
+                <p>Description:
+                    <input type="text" placeholder="description" id="description" name="description">
+                </p>
+            </div>
+            <div>
+                <!-- Model -->
+                <p>Model:
+                    <input type="text" placeholder="model" id="model" name="model">
+                </p>
+            </div>
+            <div>
+                <!-- Serial Number -->
+                <p>Serial Number:
+                    <input type="text" placeholder="serial number" id="serialNumber" name="serialNumber">
+                </p>
+            </div>
+            <div>
+                <!-- Purchase Price -->
+                <p>Purchase Price:
+                    <input type="text" placeholder="purchase price" id="purchasePrice" name="purchasePrice">
+                </p>
+            </div>
+            <div>
+                <!-- Purchase Date -->
+                <p>Date Purchased:
+                    <input type="date" placeholder="purchase date" id="purchaseDate" name="purchaseDate">
+                </p>
+            </div>
+            <div>
+                <!-- Store Name -->
+                <p>Store Purchased From:
+                    <input type="text" placeholder="store name" id="storeName" name="storeName">
+                </p>
+            </div>
+            <div>
+                <!-- Room Located -->
+                <p>Room Located:
+                    <input type="text" placeholder="room located" id="room" name="room">
+                </p>
+            </div>
+            <div>
+                <div>
+                    <!-- First Name -->
+                    <p>Owner's First Name:
+                        <input type="text" placeholder="first name" id="firstName" name="firstName">
+                    </p>
+                </div>
+                <div>
+                    <!-- Last Name -->
+                    <p>Owner's Last Name:
+                        <input type="text" placeholder="last name" id="lastName" name="lastName">
+                    </p>
+                </div>
+            </div>
+            <div class="container-1b">
+                <div>
+                    <button type="submit" name="submit" id="submit" onsubmit="form_validation()">Add</button> <!-- Need reset method -->
+                </div>
+                <div>
+                    <button type="reset" onreset="" onclick="reset_form()">Clear</button> <!-- Need reset method -->
+                </div>
+            </div>
+
+        </form>
+        <div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="blu-wht">
+            <p style="margin-left:10px;">&copy; Eric Mott, 2020</p>
+        </div>
+    </footer>
+
+    <script src="prove02-script.js"></script>
+
+</body>
+
+</html>
