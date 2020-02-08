@@ -95,8 +95,8 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $purchaseDate = $item['purchasedate'];
             $storeName = $item['storename'];
             $room = $item['room'];
-            $firstName = $item['firstName'];
-            $lastName = $item['lastName'];
+            $firstName = $item['firstname'];
+            $lastName = $item['lastname'];
 
             echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
 
