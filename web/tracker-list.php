@@ -34,10 +34,10 @@ catch (PDOException $ex)
 // $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Get data from item table
-$query = 'SELECT itemId, itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item
-     LEFT OUTER JOIN store on (item.store_id = storeId)
-     LEFT OUTER JOIN room on (item.room_id = roomId)
-     LEFT OUTER JOIN ownedBy on (item.ownerId = ownedById)';
+$query = 'SELECT itemId, itemDescription, model, serialNumber, purchasePrice, purchaseDate, store_id, location_id, ownedBy FROM item
+     LEFT OUTER JOIN store ON (item.store_id = storeId)
+     LEFT OUTER JOIN room ON (item.room_id = roomId)
+     LEFT OUTER JOIN ownedBy ON (item.ownerId = ownedById)';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
