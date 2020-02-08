@@ -8,6 +8,10 @@ try
 
     $dbOpts = parse_url($dbUrl);
 
+    if (!isset($dbUrl) || empty($dbUrl)) {
+        $dbUrl = "postgres://motte:N0lanM@xK8data@localhost:5432/DATABASE";
+    }
+
     $dbHost = $dbOpts["host"];
     $dbPort = $dbOpts["port"];
     $dbUser = $dbOpts["user"];
