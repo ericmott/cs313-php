@@ -1,4 +1,6 @@
 <?php
+function get_db(){
+    $db = NULL;
 
 try
 {
@@ -20,6 +22,8 @@ catch (PDOException $ex)
 {
     echo 'Error!: ' - $ex->getMessage();
     die();
+}
+return $db;
 }
 ?>
 
