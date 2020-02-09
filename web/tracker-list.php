@@ -98,7 +98,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $firstName = $item['firstname'];
             $lastName = $item['lastname'];
 
-            echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
+            echo "Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
 
         }
         ?>
