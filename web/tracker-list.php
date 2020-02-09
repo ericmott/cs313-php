@@ -81,11 +81,13 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </header>
 
     <main>
+        <div class="master_list">
         <?php
         // foreach ($db->('SELECT itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item') as $row) {
         //     echo "<div>" "Item: " . $row["itemDescription"] . " | Model: " . $row["model"] . " | S/N: " . $row["serialNumber"] . " | Purchase Price $" . $row["purchasePrice"] . " | Date Purchased: " . $row["purchaseDate"];
         //     echo '<br/>';
         // }
+        echo"<div>Item</div><div>Model</div><div>S/N</div><div>Purchase Price</div><div>Date Purchased</div><div>Purchased At</div><div>Located</div><div>Owner</div>";
         foreach ($items as $item) {
             $itemId = $item['itemid'];
             $itemDescription = $item['itemdescription'];
@@ -98,11 +100,21 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $firstName = $item['firstname'];
             $lastName = $item['lastname'];
 
-            echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
+            echo "<div>$itemDescription</div><div>$model</div><div>$serialNumber</div><div>$purchasePrice</div><div>$purchaseDate</div><div>$storeName</div><div>$room</div><div>$firstName $lastName</div>";
+            // echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
+
+            ?>
+                
+                
+
+          
+
+            
 
         }
-        ?>
-        
+    
+        </div>
+
 
     </main>
 
