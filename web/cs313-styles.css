@@ -90,6 +90,11 @@ a:hover {
     background-color: yellowgreen;
 }
 
+.master_list {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+}
+
 .container-1 {
     display: flex;
     justify-content: space-around;
