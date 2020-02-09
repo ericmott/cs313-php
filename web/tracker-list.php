@@ -103,9 +103,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             echo "<div>$itemDescription</div><div>$model</div><div>$serialNumber</div><div>$purchasePrice</div><div>$purchaseDate</div><div>$storeName</div><div>$room</div><div>$firstName $lastName</div>";
             // echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
 
-            ?>
-                
-                
+            ?>     
 
           
 
