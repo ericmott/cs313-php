@@ -25,7 +25,7 @@ catch (PDOException $ex)
 }
 
 // Get data from scriptures table
-$query = 'SELECT id, book, chapter, verse, content FROM scripture';
+$query = 'SELECT id, book, chapter, verse, content FROM scriptures';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
