@@ -23,6 +23,13 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+
+// Get data from scriptures table
+$query = 'SELECT id, book, chapter, verse, content FROM scripture';
+$stmt = $db->prepare($query);
+$stmt->execute();
+$scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +47,15 @@ catch (PDOException $ex)
 foreach ($db->('SELECT id, book, chapter, verse, content FROM scriptures') as $row) {
     echo "<div><b>" . $row["book"] . " " . $row["chapter"] . ":" . $row["verse"] . " - " . $row["content"] . "</b><div>";
     echo '<br/>';
+}
+foreach ($scriptures as $scripture) {
+  $id = $scripture['id'];
+  $book = $scripture['book'];
+  $chapter = $scripture['chapter'];
+  $verse = $scripture['verse'];
+  $content = $scripture['content'];
+
+  echo "<li>$book $chapter:$verse $content";
 }
 ?>
     
