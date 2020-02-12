@@ -44,10 +44,10 @@ $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <h1>Scripture Resources</h1>
 
 <?php
-foreach ($db->('SELECT id, book, chapter, verse, content FROM scriptures') as $row) {
-    echo "<div><b>" . $row["book"] . " " . $row["chapter"] . ":" . $row["verse"] . " - " . $row["content"] . "</b><div>";
-    echo '<br/>';
-}
+// foreach ($db->('SELECT id, book, chapter, verse, content FROM scriptures') as $row) {
+//     echo "<div><b>" . $row["book"] . " " . $row["chapter"] . ":" . $row["verse"] . " - " . $row["content"] . "</b><div>";
+//     echo '<br/>';
+// }
 foreach ($scriptures as $scripture) {
   $id = $scripture['id'];
   $book = $scripture['book'];
