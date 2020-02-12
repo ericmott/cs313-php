@@ -62,7 +62,7 @@ foreach ($db->query('SELECT id, book, chapter, verse, content FROM scriptures') 
 //   $content = $scripture['content'];
 
 //   echo "<li>$book $chapter:$verse $content";
-}
+// }
 ?>
     
 </body>
