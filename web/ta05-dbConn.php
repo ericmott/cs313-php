@@ -2,6 +2,7 @@
 require('dbConnect.php');
 $db = get_db();
 
+// *** Replace with above ***
 // try
 // {
 //   $dbUrl = getenv('DATABASE_URL');
@@ -23,6 +24,7 @@ $db = get_db();
 //   echo 'Error!: ' . $ex->getMessage();
 //   die();
 // }
+// *** ***************** ***
 
 // Get data from scriptures table
 $query = 'SELECT id, book, chapter, verse, content FROM scriptures';
