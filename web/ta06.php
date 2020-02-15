@@ -40,7 +40,7 @@ try
 
 
 	// prepare the statement
-	$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scripture');
+	$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scriptures');
 	$statement->execute();
 
 	// Go through each result
