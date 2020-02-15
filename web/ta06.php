@@ -50,7 +50,6 @@ $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 //   echo "<li>$book $chapter:$verse $content";
 
-
 }
 ?>
     
