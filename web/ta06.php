@@ -34,7 +34,7 @@ try
 	// This could be done with a single query (and then more processing of the resultset
 	// afterward) as follows:
 
-	//	$statement = $db->prepare('SELECT book, chapter, verse, content, t.name FROM scripture s'
+	//	$statement = $db->prepare('SELECT book, chapter, verse, content, t.name FROM scriptures'
 	//	. ' INNER JOIN scripture_topic st ON s.id = st.scriptureId'
 	//	. ' INNER JOIN topic t ON st.topicId = t.id');
 
