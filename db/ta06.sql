@@ -1,13 +1,13 @@
 -- Create table
 CREATE TABLE topic (
     id      SERIAL NOT NULL PRIMARY KEY,
-    name    varchar(80)   
+    name    varchar(80) NOT NULL
 );
 
 CREATE TABLE scripture_topic (
     id      SERIAL NOT NULL PRIMARY KEY,
-    topicId    int  NOT NULL REFERENCES topic(id),
-    scriptureId int NOT NULL REFERENCES scriptures(id)
+    scriptureId int NOT NULL REFERENCES scriptures(id),
+    topicId    int  NOT NULL REFERENCES topic(id)
 );
 
 -- Insert scriptures

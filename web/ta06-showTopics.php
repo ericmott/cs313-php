@@ -1,13 +1,15 @@
 <?php
+
+/**********************************************************
+* File: showTopics.php
+* Author: Br. Burton
+* 
+* Description: This file retrieves the scriptures and topics
+* from the DB.
+***********************************************************/
+
 require('dbConnect.php');
 $db = get_db();
-
-
-// Get data from scriptures table
-$query = 'SELECT id, book, chapter, verse, content FROM scriptures';
-$stmt = $db->prepare($query);
-$stmt->execute();
-$scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
