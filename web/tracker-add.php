@@ -20,7 +20,7 @@ foreach ($store as $store) {
     $existingStoreId = $store['storeId'];
     $existingStoreName = $store['storeName'];
 
-    if ($existingStoreName == $storeName) {
+    if ($existingStoreName === $storeName) {
         $store_id = $existingStoreId;
     } else {
         /* *** Add Store to DB *** */
