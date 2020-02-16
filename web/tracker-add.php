@@ -32,7 +32,7 @@ try
 	$statement->execute();
 
 	// get the new store id
-	$storeId = $db->lastInsertId();
+	$store_id = $db->lastInsertId();
 
     /* *** Add Owner to DB *** */  // *************************** Need to look up key if already existing ****
     $query = 'INSERT INTO ownedBy(firstName, lastName) VALUES(:firstName, :lastName)';
@@ -44,7 +44,7 @@ try
 	$statement->execute();
 
 	// get the new owner id
-    $ownedById = $db->lastInsertId();
+    $owner_id = $db->lastInsertId();
     
     /* *** Add Room to DB *** */  // *************************** Need to look up key if already existing ****
     $query = 'INSERT INTO room(room) VALUES(:room)';
