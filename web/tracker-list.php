@@ -74,8 +74,9 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $room = $item['room'];
             $firstName = $item['firstname'];
             $lastName = $item['lastname'];
+            $store_id = $item['store_id']; // extra TEST TEST TEST
 
-            echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
+            echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName | Store ID: $store_id";
         }
         ?>
         </div>
