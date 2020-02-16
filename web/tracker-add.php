@@ -16,23 +16,23 @@ $firstName = $_POST['firstName'];  // *************************** Need to look u
 $lastName = $_POST['lastName'];  // *************************** Need to look up key if already existing ****
 
 // ******* TEST TEST TEST **************
-foreach ($store as $store) {
-    $existingStoreId = $store['storeId'];
-    $existingStoreName = $store['storeName'];
+// foreach ($store as $store) {
+//     $existingStoreId = $store['storeId'];
+//     $existingStoreName = $store['storeName'];
 
-    if ($existingStoreName === $storeName) {
-        $store_id = $existingStoreId;
-    } else {
-        /* *** Add Store to DB *** */
-        $query = 'INSERT INTO store(storeName) VALUES($storeName)';
-        $statement = $db->prepare($query);
-        $statement->bindValue(':storeName', $storeName);
-        $statement->execute();
-        // get the new store id
-        $store_id = $db->lastInsertId();
-    }
+//     if ($existingStoreName === $storeName) {
+//         $store_id = $existingStoreId;
+//     } else {
+//         /* *** Add Store to DB *** */
+//         $query = 'INSERT INTO store(storeName) VALUES($storeName)';
+//         $statement = $db->prepare($query);
+//         $statement->bindValue(':storeName', $storeName);
+//         $statement->execute();
+//         // get the new store id
+//         $store_id = $db->lastInsertId();
+//     }
 
-}
+// }
 // **************************************
 
 try
@@ -41,7 +41,7 @@ try
 
     // We do this by preparing the query with placeholder values
     /* *** Add Store to DB *** */  // *************************** Need to look up key if already existing ****
-    /* *** TEST TEST TEST *************
+    // *** TEST TEST TEST *************
     $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
     $statement = $db->prepare($query);
 
@@ -53,7 +53,7 @@ try
 
 	// get the new store id
     $store_id = $db->lastInsertId();
-    ***************** END TEST END TEST END TEST *** */
+    // ***************** END TEST END TEST END TEST *** */
 
     /* *** Add Owner to DB *** */  // *************************** Need to look up key if already existing ****
     $query = 'INSERT INTO ownedBy(firstName, lastName) VALUES(:firstName, :lastName)';
