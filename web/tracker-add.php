@@ -24,7 +24,7 @@ foreach ($store as $store) {
         $store_id = $existingStoreId;
     } else {
         /* *** Add Store to DB *** */
-        $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
+        $query = 'INSERT INTO store(storeName) VALUES($storeName)';
         $statement = $db->prepare($query);
         $statement->bindValue(':storeName', $storeName);
         $statement->execute();
