@@ -57,7 +57,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </header>
 
     <main>
-        <div>
+        <div class="text-main-gry-blk">
         <?php
         // foreach ($db->('SELECT itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item') as $row) {
         //     echo "<div>" "Item: " . $row["itemDescription"] . " | Model: " . $row["model"] . " | S/N: " . $row["serialNumber"] . " | Purchase Price $" . $row["purchasePrice"] . " | Date Purchased: " . $row["purchaseDate"];
@@ -79,10 +79,10 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         ?>
         </div>
-        <div>
-            <!-- Add Show Items Button -->
-            <form action="tracker-list.php">
-                <button class="button-std" href="tracker-list.php" title="Show List of Items">Show List</button>
+        <div class="container-1">
+            <!-- Add Item Button -->
+            <form action="tracker-add.html">
+                <button class="button-std" type="submit" title="Add New Item">Add Item</button>
             </form>
         </div>
 
