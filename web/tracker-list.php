@@ -77,6 +77,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $store_id = $item['store_id']; // extra TEST TEST TEST
 
             echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName | Store ID: $store_id";
+            var_dump($itemId, $storeName, $store_id);
         }
         ?>
         </div>
