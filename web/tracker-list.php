@@ -63,7 +63,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //     echo '<br/>';
         // }
         foreach ($items as $item) {
-            $itemId = $item['itemid'];
+            $itemId = $item['itemId'];
             $itemDescription = $item['itemdescription'];
             $model = $item['model'];
             $serialNumber = $item['serialnumber'];

@@ -32,7 +32,7 @@ try
 	$statement->execute();
 
 	// get the new store id
-	$storeId = $db->lastInsertId("storeId");
+	//$storeId = $db->lastInsertId("storeId");
 
     /* *** Add Owner to DB *** */  // *************************** Need to look up key if already existing ****
     $query = 'INSERT INTO ownedBy(firstName, lastName) VALUES(:firstName, :lastName)';
