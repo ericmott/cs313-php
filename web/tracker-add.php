@@ -66,7 +66,7 @@ try
 	$statement->bindValue(':model', $model);
 	$statement->bindValue(':serialNumber', $serialNumber);
     $statement->bindValue(':purchasePrice', $purchasePrice);
-    $statement->bindValue(':purchaseDate', (CAST ($purchaseDate AS DATE)));
+    $statement->bindValue(':purchaseDate', $purchaseDate);
     $statement->bindValue(':store_id', $store_id);
     $statement->bindValue(':owner_id', $owner_id);
     $statement->bindValue(':room_id', $room_id);
