@@ -48,7 +48,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h1>Household Inventory Tracker</h1>
         <nav>
             <ul>
-                <li><a href="prove05.html">Home</a></li>
+                <li><a href="prove06.html">Home</a></li>
             </ul>
         </nav>
         <hr>
@@ -57,6 +57,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </header>
 
     <main>
+        <div>
         <?php
         // foreach ($db->('SELECT itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item') as $row) {
         //     echo "<div>" "Item: " . $row["itemDescription"] . " | Model: " . $row["model"] . " | S/N: " . $row["serialNumber"] . " | Purchase Price $" . $row["purchasePrice"] . " | Date Purchased: " . $row["purchaseDate"];
@@ -75,9 +76,15 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $lastName = $item['lastname'];
 
             echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
-
         }
         ?>
+        </div>
+        <div>
+            <!-- Add Show Items Button -->
+            <form action="tracker-list.php">
+                <button class="button-std" href="tracker-list.php" title="Show List of Items">Show List</button>
+            </form>
+        </div>
 
     </main>
 
