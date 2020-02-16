@@ -44,19 +44,18 @@ try
 	$statement->execute();
 
 	// get the new owner id
-    $ownedById = $db->lastInsertId("ownedById");
+    $ownedById = $db->lastInsertId();
     
     /* *** Add Room to DB *** */  // *************************** Need to look up key if already existing ****
-    $query = 'INSERT INTO ownedBy(firstName, lastName) VALUES(:firstName, :lastName)';
+    $query = 'INSERT INTO room(room) VALUES(:room)';
 	$statement = $db->prepare($query);
 
-    $statement->bindValue(':firstName', $firstName);
-    $statement->bindValue(':lastName', $lastName);
+    $statement->bindValue(':room', $room);
 
 	$statement->execute();
 
 	// get the new Room id
-	$ownedById = $db->lastInsertId("ownedById");
+	$room_id = $db->lastInsertId();
 	
     
     /* *** Add Item to DB *** */
