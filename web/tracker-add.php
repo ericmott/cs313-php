@@ -52,7 +52,7 @@ try
 	$statement->execute();
 
 	// get the new store id
-    $store_id = $db->lastInsertId();
+    $store_id = $db->lastInsertId(store_storeId_seq);
     // ***************** END TEST END TEST END TEST *** */
 
     /* *** Add Owner to DB *** */  // *************************** Need to look up key if already existing ****
@@ -65,7 +65,7 @@ try
 	$statement->execute();
 
 	// get the new owner id
-    $owner_id = $db->lastInsertId();
+    $owner_id = $db->lastInsertId(ownedBy_ownedById_seq);
     
     /* *** Add Room to DB *** */  // *************************** Need to look up key if already existing ****
     $query = 'INSERT INTO room(room) VALUES(:room)';
@@ -76,7 +76,7 @@ try
 	$statement->execute();
 
 	// get the new Room id
-	$room_id = $db->lastInsertId();
+	$room_id = $db->lastInsertId(room_roomId_seq);
 	
     
     /* *** Add Item to DB *** */
