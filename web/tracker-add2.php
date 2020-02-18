@@ -15,7 +15,7 @@ $room = $_POST['room'];  // *************************** Need to look up key if a
 $firstName = $_POST['firstName'];  // *************************** Need to look up key if already existing ****
 $lastName = $_POST['lastName'];  // *************************** Need to look up key if already existing ****
 
-$storeQuery = 'SELECT storeId, storeName FROM store';
+// $storeQuery = 'SELECT storeId, storeName FROM store';
 // $storeStmt = $db->prepare($storeQuery);
 // $storeStmt->execute();
 // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
@@ -27,42 +27,40 @@ $storeQuery = 'SELECT storeId, storeName FROM store';
 
 try
 {
-    // Add item details to DB
-    // get data from tables to verify uniqueness of entries
-    // $storeQuery = 'SELECT storeId, storeName FROM store';
+    Add item details to DB
+    get data from tables to verify uniqueness of entries
+    $storeQuery = 'SELECT storeId, storeName FROM store';
     // $storeStmt = $db->prepare($storeQuery);
     // $storeStmt->execute();
     // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
-    // $roomQuery = 'SELECT roomId, room FROM room';
+    $roomQuery = 'SELECT roomId, room FROM room';
     // $roomStmt = $db->prepare($roomQuery);
     // $roomStmt->execute();
     // $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
-    // // console.log("pulled existing room data: " $existingRooms);
 
-    // $ownedByQuery = 'SELECT ownedById, firstName, lastName FROM ownedBy';
+    $ownedByQuery = 'SELECT ownedById, firstName, lastName FROM ownedBy';
     // $ownedByStmt = $db->prepare($ownedByQuery);
     // $ownedByStmt->execute();
     // $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
-    // // console.log("pulled existing owner data: " $existingOwnedBys);
 
-    // // check if store exists
-    // foreach ($existingStores as $existingStore) {
-    //     // if store exists, assign existing ID to new item
-    //     if ($existingStore['storeName'] == $storeName){
-    //         $store_id = $existingStore['storeId'];
-    //     } else {
-    //         // if new store, add to table
-    //         $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
-    //         $statement = $db->prepare($query);
-    //         /* Now we bind the values to the placeholders. This does some nice things
-    //         including sanitizing the input with regard to sql commands. */
-    //         $statement->bindValue(':storeName', $storeName);
-    //         $statement->execute();
-    //         // get the new store id
-    //         $store_id = $db->lastInsertId(store_storeId_seq);
-    //     }
-    // }
+    // check if store exists
+    foreach ($storeQuery as $existingStore) {
+        // if store exists, assign existing ID to new item
+        if ($existingStore['storeName'] == $storeName){
+            $store_id = $existingStore['storeId'];
+        } else {
+            // if new store, add to table
+            $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
+            $statement = $db->prepare($newStoreQuery);
+            /* Now we bind the values to the placeholders. This does some nice things
+            including sanitizing the input with regard to sql commands. */
+            $statement->bindValue(':storeName', $storeName);
+            $statement->execute();
+            // get the new store id
+            $store_id = $db->lastInsertId(store_storeId_seq);
+        }
+    }
 
     // // check if room exists
     // foreach ($existingRooms as $existingRoom) {
