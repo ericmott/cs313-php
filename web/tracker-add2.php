@@ -21,13 +21,12 @@ try
     echo '<script>';
     echo 'console.log("In the try statement")';
     echo '</script>';
-    // // Add item details to DB
-    // // get data from tables to verify uniqueness of entries
-    // $storeQuery = 'SELECT storeId, storeName FROM store';
-    // $storeStmt = $db->prepare($storeQuery);
-    // $storeStmt->execute();
-    // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
-    // // console.log("pulled existing store data: " $existingStores);
+    // Add item details to DB
+    // get data from tables to verify uniqueness of entries
+    $storeQuery = 'SELECT storeId, storeName FROM store';
+    $storeStmt = $db->prepare($storeQuery);
+    $storeStmt->execute();
+    $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
     // $roomQuery = 'SELECT roomId, room FROM room';
     // $roomStmt = $db->prepare($roomQuery);
