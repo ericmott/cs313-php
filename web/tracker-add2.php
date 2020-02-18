@@ -15,15 +15,19 @@ $room = $_POST['room'];  // *************************** Need to look up key if a
 $firstName = $_POST['firstName'];  // *************************** Need to look up key if already existing ****
 $lastName = $_POST['lastName'];  // *************************** Need to look up key if already existing ****
 
+$storeQuery = 'SELECT storeId, storeName FROM store';
+$storeStmt = $db->prepare($storeQuery);
+$storeStmt->execute();
+$existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
 try
 {
     // Add item details to DB
     // get data from tables to verify uniqueness of entries
-    $storeQuery = 'SELECT storeId, storeName FROM store';
-    $storeStmt = $db->prepare($storeQuery);
-    $storeStmt->execute();
-    $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
+    // $storeQuery = 'SELECT storeId, storeName FROM store';
+    // $storeStmt = $db->prepare($storeQuery);
+    // $storeStmt->execute();
+    // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
     // $roomQuery = 'SELECT roomId, room FROM room';
     // $roomStmt = $db->prepare($roomQuery);
