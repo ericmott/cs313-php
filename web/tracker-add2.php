@@ -18,26 +18,28 @@ $lastName = $_POST['lastName'];  // *************************** Need to look up 
 
 try
 {
-    console.log("In the try statement");
+    echo '<script>';
+    echo 'console.log("In the try statement")';
+    echo '</script>';
     // Add item details to DB
     // get data from tables to verify uniqueness of entries
     $storeQuery = 'SELECT storeId, storeName FROM store';
     $storeStmt = $db->prepare($storeQuery);
     $storeStmt->execute();
     $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
-    console.log("pulled existing store data: " $existingStores);
+    // console.log("pulled existing store data: " $existingStores);
 
     $roomQuery = 'SELECT roomId, room FROM room';
     $roomStmt = $db->prepare($roomQuery);
     $roomStmt->execute();
     $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
-    console.log("pulled existing room data: " $existingRooms);
+    // console.log("pulled existing room data: " $existingRooms);
 
     $ownedByQuery = 'SELECT ownedById, firstName, lastName FROM ownedBy';
     $ownedByStmt = $db->prepare($ownedByQuery);
     $ownedByStmt->execute();
     $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
-    console.log("pulled existing owner data: " $existingOwnedBys);
+    // console.log("pulled existing owner data: " $existingOwnedBys);
 
     // check if store exists
     foreach ($existingStores as $existingStore) {
