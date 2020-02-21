@@ -5,18 +5,18 @@ $db = get_db();
 
 
 // get the data from the POST
-$description = $_POST['description'];
-$model = $_POST['model'];
-$serialNumber = $_POST['serialNumber'];
-$purchasePrice = $_POST['purchasePrice'];
-$purchaseDate = $_POST['purchaseDate'];
-$storeName = $_POST['storeName'];  // *************************** Need to look up key if already existing ****
-$room = $_POST['room'];  // *************************** Need to look up key if already existing ****
-$firstName = $_POST['firstName'];  // *************************** Need to look up key if already existing ****
-$lastName = $_POST['lastName'];  // *************************** Need to look up key if already existing ****
+$description = htmlspecialchars($_POST['description']);
+$model = htmlspecialchars($_POST['model']);
+$serialNumber = htmlspecialchars($_POST['serialNumber']);
+$purchasePrice = htmlspecialchars($_POST['purchasePrice']);
+$purchaseDate = htmlspecialchars($_POST['purchaseDate']);
+$storeName = htmlspecialchars($_POST['storeName']);  // *************************** Need to look up key if already existing ****
+$room = htmlspecialchars($_POST['room']);  // *************************** Need to look up key if already existing ****
+$firstName = htmlspecialchars($_POST['firstName']);  // *************************** Need to look up key if already existing ****
+$lastName = htmlspecialchars($_POST['lastName']);  // *************************** Need to look up key if already existing ****
 
 // ******* TEST TEST TEST **************
-// foreach ($store as $store) {
+// foreach ($stores as $store) {
 //     $existingStoreId = $store['storeId'];
 //     $existingStoreName = $store['storeName'];
 

@@ -23,7 +23,7 @@ $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
 
 // *****************************************
-// * NOTICE: Submitting the hased password *
+// * NOTICE: Submitting the hashed password *
 // *****************************************
 $statement->bindValue(':password', $hashedPassword);
 

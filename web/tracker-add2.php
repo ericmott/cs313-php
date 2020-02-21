@@ -5,15 +5,15 @@ $db = get_db();
 
 
 // get the data from the POST
-$description = $_POST['description'];
-$model = $_POST['model'];
-$serialNumber = $_POST['serialNumber'];
-$purchasePrice = $_POST['purchasePrice'];
-$purchaseDate = $_POST['purchaseDate'];
-$storeName = $_POST['storeName'];  // *************************** Need to look up key if already existing ****
-$room = $_POST['room'];  // *************************** Need to look up key if already existing ****
-$firstName = $_POST['firstName'];  // *************************** Need to look up key if already existing ****
-$lastName = $_POST['lastName'];  // *************************** Need to look up key if already existing ****
+$description = htmlspecialchars($_POST['description']);
+$model = htmlspecialchars($_POST['model'];
+$serialNumber = htmlspecialchars($_POST['serialNumber']);
+$purchasePrice = htmlspecialchars($_POST['purchasePrice']);
+$purchaseDate = htmlspecialchars($_POST['purchaseDate']);
+$storeName = htmlspecialchars($_POST['storeName']);  // *************************** Need to look up key if already existing ****
+$room = htmlspecialchars($_POST['room']);  // *************************** Need to look up key if already existing ****
+$firstName = htmlspecialchars($_POST['firstName']);  // *************************** Need to look up key if already existing ****
+$lastName = htmlspecialchars($_POST['lastName']);  // *************************** Need to look up key if already existing ****
 
 // $storeQuery = 'SELECT storeId, storeName FROM store';
 // $storeStmt = $db->prepare($storeQuery);
@@ -34,21 +34,21 @@ try
     // $storeStmt->execute();
     // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
-    $roomQuery = 'SELECT roomId, room FROM room';
+    // $roomQuery = 'SELECT roomId, room FROM room';
     // $roomStmt = $db->prepare($roomQuery);
     // $roomStmt->execute();
     // $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
 
-    $ownedByQuery = 'SELECT ownedById, firstName, lastName FROM ownedBy';
+    // $ownedByQuery = 'SELECT ownedById, firstName, lastName FROM ownedBy';
     // $ownedByStmt = $db->prepare($ownedByQuery);
     // $ownedByStmt->execute();
     // $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
 
     // check if store exists
-    foreach ($storeQuery as $existingStore) {
+    for ($i = 0; $i < $storeQuery.length(); $i++) {
         // if store exists, assign existing ID to new item
-        if ($existingStore['storeName'] == $storeName){
-            $store_id = $existingStore['storeId'];
+        if ($storeQuery(':storeName') == $storeName){
+            $store_id = $existingStore(':storeId');
         } else {
             // if new store, add to table
             $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
