@@ -33,6 +33,7 @@ try
     // $storeStmt = $db->prepare($storeQuery);
     // $storeStmt->execute();
     // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
+    $storeQueryResult = $storeQuery->execute();
 
     // $roomQuery = 'SELECT roomId, room FROM room';
     // $roomStmt = $db->prepare($roomQuery);
@@ -45,9 +46,9 @@ try
     // $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
 
     // check if store exists
-    for ($i = 0; $i < $storeQuery.length(); $i++) {
+    for ($i = 0; $i < $storeQueryResult.length(); $i++) {
         // if store exists, assign existing ID to new item
-        if ($storeQuery(':storeName') == $storeName){
+        if ($storeQueryResult(':storeName') == $storeName){
             $store_id = $existingStore(':storeId');
         } else {
             // if new store, add to table
