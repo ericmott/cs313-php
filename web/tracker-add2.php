@@ -5,7 +5,7 @@ $db = get_db();
 
 
 // get the data from the POST
-$description = htmlspecialchars($_POST['description']);
+$itemDescription = htmlspecialchars($_POST['description']);
 $model = htmlspecialchars($_POST['model'];
 $serialNumber = htmlspecialchars($_POST['serialNumber']);
 $purchasePrice = htmlspecialchars($_POST['purchasePrice']);
