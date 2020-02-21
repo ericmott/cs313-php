@@ -27,13 +27,12 @@ $lastName = htmlspecialchars($_POST['lastName']);  // **************************
 
 try
 {
-    Add item details to DB
-    get data from tables to verify uniqueness of entries
+    // Add item details to DB
+    // get data from tables to verify uniqueness of entries
     $storeQuery = 'SELECT storeId, storeName FROM store';
     // $storeStmt = $db->prepare($storeQuery);
     // $storeStmt->execute();
     // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
-    // $storeQueryResult = $storeQuery->execute();
 
     // $roomQuery = 'SELECT roomId, room FROM room';
     // $roomStmt = $db->prepare($roomQuery);
@@ -45,23 +44,23 @@ try
     // $ownedByStmt->execute();
     // $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
 
-    // // check if store exists
-    // for ($i = 0; $i < $existingStores.length(); $i++) {
-    //     // if store exists, assign existing ID to new item
-    //     if ($existingStores(':storeName') == $storeName){
-    //         $store_id = $existingStore(':storeId');
-    //     } else {
-    //         // if new store, add to table
-    //         $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
-    //         $statement = $db->prepare($newStoreQuery);
-    //         /* Now we bind the values to the placeholders. This does some nice things
-    //         including sanitizing the input with regard to sql commands. */
-    //         $statement->bindValue(':storeName', $storeName);
-    //         $statement->execute();
-    //         // get the new store id
-    //         $store_id = $db->lastInsertId(store_storeId_seq);
-    //     }
-    // }
+    // check if store exists
+    for ($i = 0; $i < $storeQuery.length(); $i++) {
+        // if store exists, assign existing ID to new item
+        if ($storeQuery(':storeName') == $storeName){
+            $store_id = $existingStore(':storeId');
+        } else {
+            // if new store, add to table
+            $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
+            $statement = $db->prepare($newStoreQuery);
+            /* Now we bind the values to the placeholders. This does some nice things
+            including sanitizing the input with regard to sql commands. */
+            $statement->bindValue(':storeName', $storeName);
+            $statement->execute();
+            // get the new store id
+            $store_id = $db->lastInsertId(store_storeId_seq);
+        }
+    }
 
     // // check if room exists
     // foreach ($existingRooms as $existingRoom) {
