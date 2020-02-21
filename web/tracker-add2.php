@@ -30,9 +30,9 @@ try
     Add item details to DB
     get data from tables to verify uniqueness of entries
     $storeQuery = 'SELECT storeId, storeName FROM store';
-    $storeStmt = $db->prepare($storeQuery);
-    $storeStmt->execute();
-    $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
+    // $storeStmt = $db->prepare($storeQuery);
+    // $storeStmt->execute();
+    // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
     // $storeQueryResult = $storeQuery->execute();
 
     // $roomQuery = 'SELECT roomId, room FROM room';
