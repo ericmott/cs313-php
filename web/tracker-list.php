@@ -82,7 +82,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="container-1">
             <!-- Add Item Button -->
-            <form action="tracker-add2.php">
+            <form action="tracker-add.html">
                 <button class="button-std" type="submit" title="Add New Item">Add Item</button>
             </form>
         </div>
