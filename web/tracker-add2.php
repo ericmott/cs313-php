@@ -30,10 +30,10 @@ try
     Add item details to DB
     get data from tables to verify uniqueness of entries
     $storeQuery = 'SELECT storeId, storeName FROM store';
-    // $storeStmt = $db->prepare($storeQuery);
-    // $storeStmt->execute();
-    // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
-    $storeQueryResult = $storeQuery->execute();
+    $storeStmt = $db->prepare($storeQuery);
+    $storeStmt->execute();
+    $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
+    // $storeQueryResult = $storeQuery->execute();
 
     // $roomQuery = 'SELECT roomId, room FROM room';
     // $roomStmt = $db->prepare($roomQuery);
@@ -46,9 +46,9 @@ try
     // $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
 
     // check if store exists
-    for ($i = 0; $i < $storeQueryResult.length(); $i++) {
+    for ($i = 0; $i < $existingStores.length(); $i++) {
         // if store exists, assign existing ID to new item
-        if ($storeQueryResult(':storeName') == $storeName){
+        if ($existingStores(':storeName') == $storeName){
             $store_id = $existingStore(':storeId');
         } else {
             // if new store, add to table
