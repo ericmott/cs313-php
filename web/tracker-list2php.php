@@ -48,11 +48,11 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h1>Household Inventory Tracker</h1>
         <nav>
             <ul>
-                <li><a href="prove07.html">Home</a></li>
+                <li><a href="prove06.html">Home</a></li>
             </ul>
         </nav>
         <hr>
-        <h1>Inventory List</h1>
+        <h1>Inventory List 2</h1> <!-- *************************  Change back to Inventory List ****************-->
         <hr>
     </header>
 
@@ -63,6 +63,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //     echo "<div>" "Item: " . $row["itemDescription"] . " | Model: " . $row["model"] . " | S/N: " . $row["serialNumber"] . " | Purchase Price $" . $row["purchasePrice"] . " | Date Purchased: " . $row["purchaseDate"];
         //     echo '<br/>';
         // }
+        echo "<table><tr><th>Item</th><th>Model</th><th>Room</th></tr>";
         foreach ($items as $item) {
             $itemId = $item['itemId'];
             $itemDescription = $item['itemdescription'];
@@ -76,7 +77,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $lastName = $item['lastname'];
             $store_id = $item['store_id']; // extra TEST TEST TEST
 
-            echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
+            echo "<tr><td>$itemDescription</td><td>$model</td><td>$room</td>";
         }
         ?>
         </div>

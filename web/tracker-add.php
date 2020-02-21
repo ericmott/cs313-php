@@ -104,7 +104,7 @@ catch (Exception $ex)
 }
 
 // redirect list of items page
-header("Location: tracker-list.php");
+header("Location: tracker-list2.php");// *************************  Change back to tracker-list ****************
 
 die(); // always include a die after redirects
 ?>
