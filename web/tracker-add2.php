@@ -75,11 +75,19 @@ try
     // }
 
     foreach($storeResult){
-        if ($storeName == $row[1]){
-            $store_id = $row[0];
+        // if ($storeName == $row[1]){
+        //     $store_id = $row[0];
             $storeExists = true;
         }
     }
+
+    // foreach($storeResult){
+    //     if ($storeName == $row[1]){
+    //         $store_id = $row[0];
+    //         $storeExists = true;
+    //     }
+    // }
+
     // for ($i = 0; $i < $rows; $i++){
     //     $row = $storeResult->fetch_array(MYSQLI_NUM);
     //     $storeExists = true;
