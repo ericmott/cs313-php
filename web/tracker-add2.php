@@ -84,13 +84,15 @@ try
     //     }
     // // }
 
-    $storeQuery = 'SELECT storeId, storeName FROM store';
-    foreach($db->query($storeQuery)as $row){
-        if ($row['storeName'] == $storeName){
-            $store_id = $row['storeId'];
-            $storeExists = true;
-        }
-    }
+    // // ****************************************************************** last commented out
+    // $storeQuery = 'SELECT storeId, storeName FROM store';
+    // foreach($db->query($storeQuery)as $row){
+    //     if ($row['storeName'] == $storeName){
+    //         $store_id = $row['storeId'];
+    //         $storeExists = true;
+    //     }
+    // }
+    // // *************************************************************************************
     // $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
 
     // // if ($storeResult->num_rows > 0) {
@@ -129,7 +131,7 @@ try
             
     //     }
     // }
-    if ($storeExists = false){ $store_id = 2;}
+    // if ($storeExists = false){ $store_id = 2;} // ***************************** add to verify change
     // if (!$storeExists){
     //     // if new store, add to table
     //     $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
@@ -145,31 +147,31 @@ try
     // *******************************************************
     // *******************************************************
 
-    // $roomQuery = 'SELECT roomId, room FROM room';
-    // $roomStmt = $db->prepare($roomQuery);
-    // $roomStmt->execute();
-    // $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
+    $roomQuery = 'SELECT roomId, room FROM room';
+    $roomStmt = $db->prepare($roomQuery);
+    $roomStmt->execute();
+    $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
 
     // $ownedByQuery = 'SELECT ownedById, firstName, lastName FROM ownedBy';
     // $ownedByStmt = $db->prepare($ownedByQuery);
     // $ownedByStmt->execute();
     // $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
 
-    // // check if room exists
-    // foreach ($existingRooms as $existingRoom) {
-    //     // if room exists, assign existing ID to new item
-    //     if ($existingRoom['room'] == $room){
-    //         $room_id = $existingRoom['roomId'];
-    //     } else {
-    //         // if new room, add to table
-    //         $query = 'INSERT INTO room(room) VALUES(:room)';
-    //         $statement = $db->prepare($query);
-    //         $statement->bindValue(':room', $room);
-    //         $statement->execute();
-    //         // get the new store id
-    //         $room_id = $db->lastInsertId(room_roomId_seq);
-    //     }
-    // }
+    // check if room exists
+    foreach ($existingRooms as $existingRoom) {
+        // if room exists, assign existing ID to new item
+        if ($existingRoom['room'] == $room){
+            $room_id = $existingRoom['roomId'];
+        } else {
+            // if new room, add to table
+            $query = 'INSERT INTO room(room) VALUES(:room)';
+            $statement = $db->prepare($query);
+            $statement->bindValue(':room', $room);
+            $statement->execute();
+            // get the new store id
+            $room_id = $db->lastInsertId(room_roomId_seq);
+        }
+    }
 
     // // check if owner exists
     // foreach ($existingOwnedBys as $existingOwnedBy) {
