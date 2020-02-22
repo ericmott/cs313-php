@@ -71,8 +71,8 @@ try
         $storeExists = true;
         if ( $storeName == $row[1]){
             $store_id = $row[0];
+        }
     }
-}
     // for ($i = 0; $i < $rows; $i++){
     //     $row = $storeResult->fetch_array(MYSQLI_NUM);
     //     $storeExists = true;
@@ -81,7 +81,7 @@ try
             
     //     }
     // }
-    if (!$storeExists){ $store_id = 2;}
+    if (!$storeExists){ $store_id = $rows;}
     // if (!$storeExists){
     //     // if new store, add to table
     //     $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
