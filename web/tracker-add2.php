@@ -33,7 +33,7 @@ try
 {
     // ****************************************************
     // ****************************************************
-    
+
     // // Add item details to DB
     // // get data from tables to verify uniqueness of entries
     // $storeQuery = 'SELECT storeId, storeName FROM store';
@@ -129,7 +129,7 @@ try
     //         $owner_id = $db->lastInsertId(ownedBy_ownedById_seq);
     //     }
     // }
-    
+
     /* *** Add Item to DB *** */
     $query = 'INSERT INTO item(itemDescription, model, serialNumber, purchasePrice, purchaseDate, store_id, owner_id, room_id) VALUES(:itemDescription, :model, :serialNumber, :purchasePrice, :purchaseDate, :store_id, :owner_id, :room_id)';
 	$statement = $db->prepare($query);
@@ -155,7 +155,7 @@ catch (Exception $ex)
 }
 
 // redirect list of items page
-header("Location: tracker-list.php");
+header("Location: tracker-list2.php");
 
 die(); // always include a die after redirects
 ?>
