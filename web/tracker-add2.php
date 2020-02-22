@@ -65,13 +65,22 @@ try
 
     // $rows = 'SELECT COUNT(*) FROM store';
     // $rows = pg_num_rows($storeResult);
-    $rows = $storeResult->pg_num_rows;
+    // $rows = $storeResult->pg_num_rows;
     $storeExists = false;
-    for ($i = 0; $i < $rows; $i++){
-        $row = $storeResult->fetch_array(MYSQLI_NUM);
-        $storeExists = true;
-        if ( $storeName == $row[1]){
-            $store_id = $row[0];
+    // for ($i = 0; $i < $rows; $i++){
+    //     $row = $storeResult->fetch_array(MYSQLI_NUM);
+    //     $storeExists = true;
+    //     if ( $storeName == $row[1]){
+    //         $store_id = $row[0];
+    //     }
+    // }
+
+    if ($storeResult->num_rows > 0) {
+        while($row = $storeResult->fetch_assoc()){
+            if ($storeName == $row[1]){
+                $store_id = $row[0];
+                $storeExists = true;
+            }
         }
     }
 
