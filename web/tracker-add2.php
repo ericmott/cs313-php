@@ -86,7 +86,7 @@ try
 
     $storeQuery = 'SELECT storeId, storeName FROM store';
     foreach($db->query($storeQuery)as $row){
-        if ($row['storeName'] = $storeName){
+        if ($row['storeName'] == $storeName){
             $store_id = $row['storeId'];
             $storeExists = true;
         }
