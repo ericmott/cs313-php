@@ -95,7 +95,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <p style="margin-left:10px;">&copy; Eric Mott, 2020</p>
         </div>
     </footer>
-
+    
     <script src="prove02-script.js"></script>
 
 </body>
