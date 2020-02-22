@@ -6,7 +6,7 @@ $db = get_db();
 
 // get the data from the POST
 $itemDescription = htmlspecialchars($_POST['description']);
-$model = htmlspecialchars($_POST['model'];
+$model = htmlspecialchars($_POST['model']);
 $serialNumber = htmlspecialchars($_POST['serialNumber']);
 $purchasePrice = htmlspecialchars($_POST['purchasePrice']);
 $purchaseDate = htmlspecialchars($_POST['purchaseDate']);
@@ -155,7 +155,7 @@ catch (Exception $ex)
 }
 
 // redirect list of items page
-header("Location: tracker-list2.php");
+header("Location: tracker-list2.php");// *************************  Change back to tracker-list ****************
 
 die(); // always include a die after redirects
 ?>
