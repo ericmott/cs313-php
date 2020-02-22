@@ -74,14 +74,15 @@ try
 
     $storeQuery = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
     $storeResult = $db->query($storeQuery);
+    $storeResult->bindParam(':storeId', $store_id)
     // $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($storeResult->num_rows > 0) {
+    // if ($storeResult->num_rows > 0) {
         while($row = $storeResult->fetch_assoc()) {
             $store_id = $row['storeId'];
             $storeExists = true;
         }
-    }
+    // }
 
     // $rows = 'SELECT COUNT(*) FROM store';
     // $rows = pg_num_rows($storeResult);
