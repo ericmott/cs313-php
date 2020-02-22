@@ -61,7 +61,7 @@ try
 
     $storeExists = false;
 
-    $storeQuery = 'SELECT storeId, storeName FROM store where storeName = :storeName';
+    $storeQuery = 'SELECT storeId, storeName FROM store WHERE storeName = ":storeName"';
     $storeResult = $db->prepare($storeQuery);
     $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
 
