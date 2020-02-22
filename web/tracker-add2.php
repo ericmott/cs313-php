@@ -60,7 +60,7 @@ try
     // }
 
     $storeQuery = 'SELECT storeId, storeName FROM store';
-    // $storeResult = $db->query($storeQuery);
+    $storeResult = $db->query($storeQuery);
     // if (!$storeResult) die ("Database access failed");
 
     // $rows = $storeResult->num_rows;
