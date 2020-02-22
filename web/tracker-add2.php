@@ -65,7 +65,7 @@ try
 
     // $rows = 'SELECT COUNT(*) FROM store';
     // $rows = pg_num_rows($storeResult);
-    $rows = $storeResult->num_rows;
+    $rows = $storeResult->pg_num_rows;
     $storeExists = false;
     for ($i = 0; $i < $rows; $i++){
         $row = $storeResult->fetch_array(MYSQLI_NUM);
