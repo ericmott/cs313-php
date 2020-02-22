@@ -65,13 +65,13 @@ try
 
     $rows = $storeResult->num_rows;
     $storeExists = false;
-    // for ($i = 0; $i < $rows; $i++){
-    //     $row = $storeResult->fetch_array(MYSQLI_NUM);
-    //     if ($storeName == $row[1]){
-    //         $store_id = $row[0];
-    //         $storeExists = true;
-    //     }
-    // }
+    for ($i = 0; $i < $rows; $i++){
+        // $row = $storeResult->fetch_array(MYSQLI_NUM);
+        // if ($storeName == $row[1]){
+        //     $store_id = $row[0];
+        //     $storeExists = true;
+        // }
+    }
     // if (!$storeExists){
     //     // if new store, add to table
     //     $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
