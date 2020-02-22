@@ -60,12 +60,12 @@ try
     // }
 
     $storeExists = false;
-    
+
     $storeQuery = 'SELECT storeId, storeName FROM store where storeName = :storeName';
     $storeResult = $db->prepare($storeQuery);
     $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($stores) {
+    if (!$storeExists) {
         foreach ($stores as $store) {
             $store_id = $store['storeId'];
             $storeExists = true;
