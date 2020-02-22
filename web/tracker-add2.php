@@ -84,7 +84,7 @@ try
     //     }
     // // }
 
-    $storeQuery = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
+    $storeQuery = 'SELECT storeId, storeName FROM store';
     foreach($db->query($storeQuery)as $row){
         if ($row['storeName'] = $storeName){
             $store_id = $row['storeId'];
