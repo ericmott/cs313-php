@@ -34,6 +34,8 @@ try
     // ****************************************************
     // ****************************************************
 
+    $storeExists = false;
+
     // // Add item details to DB
     // // get data from tables to verify uniqueness of entries
     // $storeQuery = 'SELECT storeId, storeName FROM store';
@@ -59,8 +61,6 @@ try
     //     }
     // }
 
-    $storeExists = false;
-
     // $storeQuery = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
     // $storeResult = $db->prepare($storeQuery);
     // $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
@@ -72,17 +72,33 @@ try
     //     }
     // }
 
-    $storeQuery = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
-    $storeResult = $db->query($storeQuery);
-    $storeResult->bindParam(':storeId', $store_id)
-    // $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
+    // $storeQuery = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
+    // $storeResult = $db->query($storeQuery);
+    // $storeResult->bindParam(':storeId', $store_id)
+    // // $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
 
-    // if ($storeResult->num_rows > 0) {
-        while($row = $storeResult->fetch_assoc()) {
+    // // if ($storeResult->num_rows > 0) {
+    //     while($row = $storeResult->fetch_assoc()) {
+    //         $store_id = $row['storeId'];
+    //         $storeExists = true;
+    //     }
+    // // }
+
+    $storeQuery = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
+    foreach($db->query($storeQuery)as $row){
+        if ($row['storeName'] = $storeName){
             $store_id = $row['storeId'];
             $storeExists = true;
         }
-    // }
+    }
+    // $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
+
+    // // if ($storeResult->num_rows > 0) {
+    //     while($row = $storeResult->fetch_assoc()) {
+    //         $store_id = $row['storeId'];
+    //         $storeExists = true;
+    //     }
+    // // }
 
     // $rows = 'SELECT COUNT(*) FROM store';
     // $rows = pg_num_rows($storeResult);
@@ -104,8 +120,6 @@ try
     //         }
     //     }
     // }
-
-
 
     // for ($i = 0; $i < $rows; $i++){
     //     $row = $storeResult->fetch_array(MYSQLI_NUM);
