@@ -63,7 +63,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //     echo "<div>" "Item: " . $row["itemDescription"] . " | Model: " . $row["model"] . " | S/N: " . $row["serialNumber"] . " | Purchase Price $" . $row["purchasePrice"] . " | Date Purchased: " . $row["purchaseDate"];
         //     echo '<br/>';
         // }
-        echo "<table><tr><th>Item</th><th>Model</th><th>Room</th></tr>";
+        echo "<table><tr><th>Item</th><th>Model</th><th>Room</th><th>Store ID</th></tr>";
         foreach ($items as $item) {
             $itemId = $item['itemId'];
             $itemDescription = $item['itemdescription'];
@@ -77,7 +77,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $lastName = $item['lastname'];
             $store_id = $item['store_id']; // extra TEST TEST TEST
 
-            echo "<tr><td>$itemDescription</td><td>$model</td><td>$room</td>";
+            echo "<tr><td>$itemDescription</td><td>$model</td><td>$room</td><td>$store_id</td>";
         }
         ?>
         </div>
