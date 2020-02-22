@@ -59,7 +59,7 @@ try
     //     }
     // }
 
-    // $storeQuery = 'SELECT storeId, storeName FROM store';
+    $storeQuery = 'SELECT storeId, storeName FROM store';
     // $storeResult = $db->query($storeQuery);
     // if (!$storeResult) die ("Database access failed");
 
