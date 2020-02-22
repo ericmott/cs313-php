@@ -27,22 +27,17 @@ $lastName = htmlspecialchars($_POST['lastName']);  // **************************
 
 try
 {
-    // Add item details to DB
-    // get data from tables to verify uniqueness of entries
+    // ****************************************************
+    // ****************************************************
+    
+    // // Add item details to DB
+    // // get data from tables to verify uniqueness of entries
     // $storeQuery = 'SELECT storeId, storeName FROM store';
     // $storeStmt = $db->prepare($storeQuery);
     // $storeStmt->execute();
     // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
-    // $roomQuery = 'SELECT roomId, room FROM room';
-    // $roomStmt = $db->prepare($roomQuery);
-    // $roomStmt->execute();
-    // $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
-
-    // $ownedByQuery = 'SELECT ownedById, firstName, lastName FROM ownedBy';
-    // $ownedByStmt = $db->prepare($ownedByQuery);
-    // $ownedByStmt->execute();
-    // $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
+    
 
     // // check if store exists
     // for ($i = 0; $i < $storeQuery.length(); $i++) {
@@ -61,6 +56,44 @@ try
     //         $store_id = $db->lastInsertId(store_storeId_seq);
     //     }
     // }
+
+    $storeQuery = 'SELECT storeId, storeName FROM store';
+    $storeResult = $db->query($storeQuery);
+    if (!$storeResult) die ("Database access failed");
+
+    $rows = $storeResult->num_rows;
+    $storeExists = false;
+    for ($i = 0; $i < $rows; $i++){
+        $row = $storeResult->fetch_array(MYSQLI_NUM);
+        if ($storeName == $row[1]){
+            $store_id = $row[0];
+            $storeExists = true;
+        }
+    }
+    if (!$storeExists){
+        // if new store, add to table
+        $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
+        $statement = $db->prepare($newStoreQuery);
+        /* Now we bind the values to the placeholders. This does some nice things
+        including sanitizing the input with regard to sql commands. */
+        $statement->bindValue(':storeName', $storeName);
+        $statement->execute();
+        // get the new store id
+        $store_id = $db->lastInsertId(store_storeId_seq);
+    }
+
+    // *******************************************************
+    // *******************************************************
+
+    // $roomQuery = 'SELECT roomId, room FROM room';
+    // $roomStmt = $db->prepare($roomQuery);
+    // $roomStmt->execute();
+    // $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
+
+    // $ownedByQuery = 'SELECT ownedById, firstName, lastName FROM ownedBy';
+    // $ownedByStmt = $db->prepare($ownedByQuery);
+    // $ownedByStmt->execute();
+    // $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
 
     // // check if room exists
     // foreach ($existingRooms as $existingRoom) {
