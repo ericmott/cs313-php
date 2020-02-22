@@ -65,7 +65,7 @@ try
     $storeResult = $db->prepare($storeQuery);
     $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
 
-    if (!$storeExists) {
+    if ($storeExists = false) {
         foreach ($stores as $store) {
             $store_id = $store['storeId'];
             $storeExists = true;
