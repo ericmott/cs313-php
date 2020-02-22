@@ -15,6 +15,10 @@ $room = htmlspecialchars($_POST['room']);  // *************************** Need t
 $firstName = htmlspecialchars($_POST['firstName']);  // *************************** Need to look up key if already existing ****
 $lastName = htmlspecialchars($_POST['lastName']);  // *************************** Need to look up key if already existing ****
 
+$store_id = 777;
+$room_id = 777;
+$owner_id = 777;
+
 // $storeQuery = 'SELECT storeId, storeName FROM store';
 // $storeStmt = $db->prepare($storeQuery);
 // $storeStmt->execute();
@@ -36,8 +40,6 @@ try
     // $storeStmt = $db->prepare($storeQuery);
     // $storeStmt->execute();
     // $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
-
-    
 
     // // check if store exists
     // for ($i = 0; $i < $storeQuery.length(); $i++) {
