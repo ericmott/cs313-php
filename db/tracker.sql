@@ -28,13 +28,13 @@ room_id  int REFERENCES room (roomId)
 
 
 
-INSERT INTO room (room) VALUES ('Family Room');
-INSERT INTO room (room) VALUES ('Garage');
-INSERT INTO ownedBy (firstName, lastName) VALUES ('Eric', 'Mott');
-INSERT INTO ownedBy (firstName, lastName) VALUES ('Jill', 'Thomson');
-INSERT INTO store (storeName) VALUES ('Best Buy');
-INSERT INTO store (storeName) VALUES ('Costco');
+INSERT INTO room (room) VALUES ('Base Room');
+INSERT INTO room (room) VALUES ('Base Room2');
+INSERT INTO ownedBy (firstName, lastName) VALUES ('BaseFirst', 'BaseLast');
+INSERT INTO ownedBy (firstName, lastName) VALUES ('BaseFirst2', 'BaseLast2');
+INSERT INTO store (storeName) VALUES ('Base Store');
+INSERT INTO store (storeName) VALUES ('Base Store2');
 INSERT INTO item (itemDescription, model, serialNumber, purchasePrice, purchaseDate, store_id, owner_id, room_id)
-  VALUES ('Laptop', 'Lenovo 242', '2334AEEC3322DDS', 1295.97, '2019-08-23', 2, 1, 1);
+  VALUES ('Base Description', 'Base Model', 'Base S/N', 1.23, '2020-01-01', 1, 1, 1);
 INSERT INTO item (itemDescription, model, serialNumber, purchasePrice, purchaseDate, store_id, owner_id, room_id)
-  VALUES ('Cell Phone', 'iPhone 8', 'AEEX335422OLL', 495.99, '2019-04-11', 1, 2, 2);
+  VALUES ('Base Description2', 'Base Model2', 'Base S/N2', 1.23, '2020-01-02', 2, 2, 2);
