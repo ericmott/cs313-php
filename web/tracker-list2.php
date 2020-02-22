@@ -48,11 +48,11 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h1>Household Inventory Tracker</h1>
         <nav>
             <ul>
-                <li><a href="prove06.html">Home</a></li>
+                <li><a href="prove07.html">Home</a></li>
             </ul>
         </nav>
         <hr>
-        <h1>Inventory List 2</h1> <!-- *************************  Change back to Inventory List ****************-->
+        <h1>Inventory List TEST</h1> <!-- *************************  Change back to Inventory List ****************-->
         <hr>
     </header>
 
@@ -83,8 +83,8 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="container-1">
             <!-- Add Item Button -->
-            <form action="tracker-add.html">
-                <button class="button-std" type="submit" title="Add New Item">Add Item</button>
+            <form action="tracker-add2.html">
+                <button class="button-std" type="submit" title="Add New Item">Add Item TEST</button>
             </form>
         </div>
 
