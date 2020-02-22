@@ -57,30 +57,30 @@ try
     //     }
     // }
 
-    $storeQuery = 'SELECT storeId, storeName FROM store';
-    $storeResult = $db->query($storeQuery);
-    if (!$storeResult) die ("Database access failed");
+    // $storeQuery = 'SELECT storeId, storeName FROM store';
+    // $storeResult = $db->query($storeQuery);
+    // if (!$storeResult) die ("Database access failed");
 
-    $rows = $storeResult->num_rows;
-    $storeExists = false;
-    for ($i = 0; $i < $rows; $i++){
-        $row = $storeResult->fetch_array(MYSQLI_NUM);
-        if ($storeName == $row[1]){
-            $store_id = $row[0];
-            $storeExists = true;
-        }
-    }
-    if (!$storeExists){
-        // if new store, add to table
-        $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
-        $statement = $db->prepare($newStoreQuery);
-        /* Now we bind the values to the placeholders. This does some nice things
-        including sanitizing the input with regard to sql commands. */
-        $statement->bindValue(':storeName', $storeName);
-        $statement->execute();
-        // get the new store id
-        $store_id = $db->lastInsertId(store_storeId_seq);
-    }
+    // $rows = $storeResult->num_rows;
+    // $storeExists = false;
+    // for ($i = 0; $i < $rows; $i++){
+    //     $row = $storeResult->fetch_array(MYSQLI_NUM);
+    //     if ($storeName == $row[1]){
+    //         $store_id = $row[0];
+    //         $storeExists = true;
+    //     }
+    // }
+    // if (!$storeExists){
+    //     // if new store, add to table
+    //     $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
+    //     $statement = $db->prepare($newStoreQuery);
+    //     /* Now we bind the values to the placeholders. This does some nice things
+    //     including sanitizing the input with regard to sql commands. */
+    //     $statement->bindValue(':storeName', $storeName);
+    //     $statement->execute();
+    //     // get the new store id
+    //     $store_id = $db->lastInsertId(store_storeId_seq);
+    // }
 
     // *******************************************************
     // *******************************************************
