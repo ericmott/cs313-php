@@ -59,14 +59,23 @@ try
     //     }
     // }
 
-    $storeQuery = 'SELECT storeId, storeName FROM store';
-    $storeResult = $db->query($storeQuery);
-    if (!$storeResult) die ("Database access failed");
+    $storeExists = false;
+    
+    $storeQuery = 'SELECT storeId, storeName FROM store where storeName = :storeName';
+    $storeResult = $db->prepare($storeQuery);
+    $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($stores) {
+        foreach ($stores as $store) {
+            $store_id = $store['storeId'];
+            $storeExists = true;
+        }
+    }
 
     // $rows = 'SELECT COUNT(*) FROM store';
     // $rows = pg_num_rows($storeResult);
     // $rows = $storeResult->pg_num_rows;
-    $storeExists = false;
+    // $storeExists = false;
     // for ($i = 0; $i < $rows; $i++){
     //     $row = $storeResult->fetch_array(MYSQLI_NUM);
     //     $storeExists = true;
@@ -75,14 +84,15 @@ try
     //     }
     // }
 
-    if ($storeResult->num_rows > 0) {
-        while($row = $storeResult->fetch_assoc()){
-            if ($storeName == $row[1]){
-                $store_id = $row[0];
-                $storeExists = true;
-            }
-        }
-    }
+    // if ($storeResult->num_rows > 0) {
+    //     while($row = $storeResult->fetch_assoc()){
+    //         if ($storeName == $row[1]){
+    //             $store_id = $row[0];
+    //             $storeExists = true;
+    //         }
+    //     }
+    // }
+
 
 
     // for ($i = 0; $i < $rows; $i++){
@@ -93,7 +103,7 @@ try
             
     //     }
     // }
-    if (!$storeExists){ $store_id = $rows;}
+    if (!$storeExists){ $store_id = 2;}
     // if (!$storeExists){
     //     // if new store, add to table
     //     $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
