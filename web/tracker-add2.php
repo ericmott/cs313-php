@@ -64,12 +64,13 @@ try
     if (!$storeResult) die ("Database access failed");
 
     $rows = $storeResult->num_rows;
-    $storeExists = true;
+    $storeExists = false;
     for ($i = 0; $i < $rows; $i++){
         $row = $storeResult->fetch_array(MYSQLI_NUM);
+        $storeExists = true;
         if ($storeName == $row[1]){
             $store_id = $row[0];
-            $storeExists = true;
+            
         }
     }
     if ($storeExists){ $store_id = 2;}
