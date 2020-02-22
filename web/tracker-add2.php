@@ -61,13 +61,24 @@ try
 
     $storeExists = false;
 
-    $storeQuery = 'SELECT storeId, storeName FROM store WHERE storeName = ":storeName"';
-    $storeResult = $db->prepare($storeQuery);
-    $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
+    // $storeQuery = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
+    // $storeResult = $db->prepare($storeQuery);
+    // $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($storeExists = false) {
-        foreach ($stores as $store) {
-            $store_id = $store['storeId'];
+    // if ($storeExists = false) {
+    //     foreach ($stores as $store) {
+    //         $store_id = $store['storeId'];
+    //         $storeExists = true;
+    //     }
+    // }
+
+    $storeQuery = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
+    $storeResult = $db->query($storeQuery);
+    // $stores = $storeResult->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($storeResult->num_rows > 0) {
+        while($row = $storeResult->fetch_assoc()) {
+            $store_id = $row['storeId'];
             $storeExists = true;
         }
     }
