@@ -104,7 +104,7 @@ try
             
     //     }
     // }
-    if (!$storeExists){ $store_id = 2;}
+    if ($storeExists = false){ $store_id = 2;}
     // if (!$storeExists){
     //     // if new store, add to table
     //     $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
