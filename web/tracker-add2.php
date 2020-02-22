@@ -64,29 +64,15 @@ try
     if (!$storeResult) die ("Database access failed");
 
     // $rows = 'SELECT COUNT(*) FROM store';
-    $rows = $storeResult->num_rows;
+    $rows = pg_num_rows($storeResult);
     $storeExists = false;
-    // for ($i = 0; $i < $rows; $i++){
-    //     $row = $storeResult->fetch_array(MYSQLI_NUM);
-    //     $storeExists = true;
-    //     if ( $storeName == $row[1]){
-    //         $store_id = $row[0];
-    //     }
-    // }
-
-    foreach($storeResult){
-        // if ($storeName == $row[1]){
-        //     $store_id = $row[0];
-            $storeExists = true;
+    for ($i = 0; $i < $rows; $i++){
+        $row = $storeResult->fetch_array(MYSQLI_NUM);
+        $storeExists = true;
+        if ( $storeName == $row[1]){
+            $store_id = $row[0];
         }
     }
-
-    // foreach($storeResult){
-    //     if ($storeName == $row[1]){
-    //         $store_id = $row[0];
-    //         $storeExists = true;
-    //     }
-    // }
 
     // for ($i = 0; $i < $rows; $i++){
     //     $row = $storeResult->fetch_array(MYSQLI_NUM);
@@ -96,7 +82,7 @@ try
             
     //     }
     // }
-    if (!$storeExists){ $store_id = 11;}
+    if (!$storeExists){ $store_id = $rows;}
     // if (!$storeExists){
     //     // if new store, add to table
     //     $newStoreQuery = 'INSERT INTO store(storeName) VALUES(:storeName)';
