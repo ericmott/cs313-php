@@ -64,7 +64,7 @@ try
     if (!$storeResult) die ("Database access failed");
 
     $rows = $storeResult->num_rows;
-    $storeExists = false;
+    $storeExists = true;
     for ($i = 0; $i < $rows; $i++){
         $row = $storeResult->fetch_array(MYSQLI_NUM);
         if ($storeName == $row[1]){
