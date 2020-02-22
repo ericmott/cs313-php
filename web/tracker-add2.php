@@ -63,8 +63,8 @@ try
     $storeResult = $db->query($storeQuery);
     if (!$storeResult) die ("Database access failed");
 
-    $rows = 'SELECT COUNT(*) FROM store';
-    // $rows = $storeResult->num_rows;
+    // $rows = 'SELECT COUNT(*) FROM store';
+    $rows = $storeResult->num_rows;
     $storeExists = false;
     for ($i = 0; $i < $rows; $i++){
         $row = $storeResult->fetch_array(MYSQLI_NUM);
