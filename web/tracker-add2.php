@@ -35,6 +35,8 @@ try
     // ****************************************************
 
     $storeExists = false;
+    $roomExists = false;
+    $ownerExists = false;
 
     // // Add item details to DB
     // // get data from tables to verify uniqueness of entries
@@ -147,7 +149,8 @@ try
     // *******************************************************
     // *******************************************************
 
-    $roomQuery = 'SELECT roomId, room FROM room';
+
+    $roomQuery = 'SELECT roomId, room FROM room WHERE room == :room';
     $roomStmt = $db->prepare($roomQuery);
     $roomStmt->execute();
     $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
@@ -158,21 +161,26 @@ try
     // $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
 
     // check if room exists
-    foreach ($existingRooms as $existingRoom) {
-        // if room exists, assign existing ID to new item
-        if ($existingRoom['room'] == $room){
-            $room_id = $existingRoom['roomId'];
-        } else {
-            // if new room, add to table
-            $query = 'INSERT INTO room(room) VALUES(:room)';
-            $statement = $db->prepare($query);
-            $statement->bindValue(':room', $room);
-            $statement->execute();
-            // get the new store id
-            $room_id = $db->lastInsertId(room_roomId_seq);
-        }
+    if ($existingRooms){
+        foreach ($existingRooms as $existingRoom) {
+            // if room exists, assign existing ID to new item
+            if ($roomExists == false){
+                if ($existingRoom['room'] == $room){
+                    $room_id = $existingRoom['roomId'];
+                    $roomExists = true;
+                }
+            }
+    }else {
+        // if new room, add to table
+        $query = 'INSERT INTO room(room) VALUES(:room)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':room', $room);
+        $statement->execute();
+        // get the new store id
+        $room_id = $db->lastInsertId(room_roomId_seq);
+        $roomExists = true;
     }
-
+    
     // // check if owner exists
     // foreach ($existingOwnedBys as $existingOwnedBy) {
     //     // if owner exists, assign existing ID to new item
