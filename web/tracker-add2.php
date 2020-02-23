@@ -150,10 +150,12 @@ try
     // *******************************************************
 
 
-    // $roomQuery = 'SELECT roomId, room FROM room';
-    // $roomStmt = $db->prepare($roomQuery);
-    // $roomStmt->execute();
-    // $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
+    $roomQuery = 'SELECT roomId, room FROM room';
+    $roomStmt = $db->prepare($roomQuery);
+    $roomStmt->bindValue(':roomId', $roomId, PDO::PARAM_INT);
+    $roomStmt->bindValue(':room', $room, PDO::PARAM_STR);
+    $roomStmt->execute();
+    $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
 
     // $ownedByQuery = 'SELECT ownedById, firstName, lastName FROM ownedBy';
     // $ownedByStmt = $db->prepare($ownedByQuery);
