@@ -160,16 +160,16 @@ try
     // $ownedByStmt->execute();
     // $existingOwnedBys = $ownedByStmt->fetchAll(PDO::FETCH-ASSOC);
 
-    // check if room exists
-    foreach ($existingRooms as $existingRoom) {
-        // if room exists, assign existing ID to new item
-        if ($roomExists == false){
-            if ($existingRoom['room'] == $room){
-                $room_id = $existingRoom['roomId'];
-                $roomExists = true;
-            }
-        }
-    }
+    // // check if room exists
+    // foreach ($existingRooms as $existingRoom) {
+    //     // if room exists, assign existing ID to new item
+    //     if ($roomExists == false){
+    //         if ($existingRoom['room'] == $room){
+    //             $room_id = $existingRoom['roomId'];
+    //             $roomExists = true;
+    //         }
+    //     }
+    // }
     // if ($roomExists == false){
     //     $query = 'INSERT INTO room(room) VALUES(:room)';
     //     $statement = $db->prepare($query);
