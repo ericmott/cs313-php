@@ -170,15 +170,15 @@ try
             }
         }
     }
-    if ($roomExists == false){
-        $query = 'INSERT INTO room(room) VALUES(:room)';
-        $statement = $db->prepare($query);
-        $statement->bindValue(':room', $room);
-        $statement->execute();
-        // get the new store id
-        $room_id = $db->lastInsertId(room_roomId_seq);
-        $roomExists = true;
-    }
+    // if ($roomExists == false){
+    //     $query = 'INSERT INTO room(room) VALUES(:room)';
+    //     $statement = $db->prepare($query);
+    //     $statement->bindValue(':room', $room);
+    //     $statement->execute();
+    //     // get the new store id
+    //     $room_id = $db->lastInsertId(room_roomId_seq);
+    //     $roomExists = true;
+    // }
     
     // // check if owner exists
     // foreach ($existingOwnedBys as $existingOwnedBy) {
