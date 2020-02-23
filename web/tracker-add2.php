@@ -170,6 +170,7 @@ try
                     $roomExists = true;
                 }
             }
+        }
     }else {
         // if new room, add to table
         $query = 'INSERT INTO room(room) VALUES(:room)';
