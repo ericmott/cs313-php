@@ -157,13 +157,17 @@ try
     // $roomStmt->execute();
     // $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
 
-    $roomQuery = 'SELECT roomId, room FROM room  WHERE room=:room';
-    $roomStmt = $db->prepare($roomQuery);
+    // $roomQuery = 'SELECT roomId, room FROM room  WHERE room=:room';
+    // $roomStmt = $db->prepare($roomQuery);
     // $roomStmt->bindValue(':roomId', $roomId, PDO::PARAM_INT);
     // $roomStmt->bindValue(':room', $room, PDO::PARAM_STR);
-    $roomStmt->execute(array(':roomId' => $room_Id, 'room' => $room));
+    // $roomStmt->execute(array(':roomId' => $room_Id, 'room' => $room));
     // $roomStmt->execute();
-    $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
+    // $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
+
+    $existingRooms->execute('SELECT roomId, room FROM room  WHERE room=:room')->fetchAll(PDO::FETCH-ASSOC);
+
+
 
 
     // $ownedByQuery = 'SELECT ownedById, firstName, lastName FROM ownedBy';
