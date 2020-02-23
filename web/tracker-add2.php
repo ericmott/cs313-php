@@ -161,7 +161,7 @@ try
     $roomStmt = $db->prepare($roomQuery);
     // $roomStmt->bindValue(':roomId', $roomId, PDO::PARAM_INT);
     // $roomStmt->bindValue(':room', $room, PDO::PARAM_STR);
-    $roomStmt->execute(array(':roomId' => $roomId, 'room' => $room));
+    $roomStmt->execute(array(':roomId' => $room_Id, 'room' => $room));
     // $roomStmt->execute();
     $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
 
