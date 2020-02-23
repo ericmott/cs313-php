@@ -150,7 +150,7 @@ try
     // *******************************************************
 
 
-    $roomQuery = 'SELECT roomId, room FROM room WHERE room == :room';
+    $roomQuery = 'SELECT roomId, room FROM room WHERE room == ":room"';
     $roomStmt = $db->prepare($roomQuery);
     $roomStmt->execute();
     $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
