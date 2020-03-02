@@ -15,26 +15,55 @@ $room = htmlspecialchars($_POST['room']);  // *************************** Need t
 $firstName = htmlspecialchars($_POST['firstName']);  // *************************** Need to look up key if already existing ****
 $lastName = htmlspecialchars($_POST['lastName']);  // *************************** Need to look up key if already existing ****
 
-$store_id = 1;
+// $store_id = 1;
 $room_id = 1;
 $owner_id = 1;
 
-// $storeQuery = 'SELECT storeId, storeName FROM store';
-// $storeStmt = $db->prepare($storeQuery);
-// $storeStmt->execute();
-// $existingStores = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
+$storeQuery = 'SELECT storeName FROM store';
+$storeStmt = $db->prepare($storeQuery);
+$executeSuccess = $storeStmt->execute();
+$existingStoresInTable = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
-// $query = 'SELECT storeId, storeName FROM store';
-// $stmt = $db->prepare($query);
-// $stmt->execute();
-// $existingStores = $stmt->fetchAll(PDO::FETCH-ASSOC);
+// If store table empty, add new store
+if (empty($existingStoresInTable)) {
+    // Add to DB
+    $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
+    $statement = $db->prepare($query);
+    
+    $statement->bindValue(':storeName', $storeName);
+    $statement->execute();
+
+    $store_id = $db->lastInsertId(store_storeId_seq);
+} else {
+    // check for existing store ID
+    $query = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
+    $stmt = $db->prepare($query);
+    $stmt->execute();
+    $existingStore = $stmt->fetchAll(PDO::FETCH-ASSOC);
+
+    if (empty($existingStore)) {
+        // Add to DB
+        $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
+        $statement = $db->prepare($query);
+        
+        $statement->bindValue(':storeName', $storeName);
+        $statement->execute();
+
+        $store_id = $db->lastInsertId(store_storeId_seq);
+    } else {
+        foreach ($existingStore as $store) {
+            $storeId = $store['storeId'];
+        }
+    }
+
+
 
 try
 {
     // ****************************************************
     // ****************************************************
 
-    $storeExists = false;
+    // $storeExists = false;
     $roomExists = false;
     $ownerExists = false;
 
@@ -165,7 +194,7 @@ try
     // $roomStmt->execute();
     // $existingRooms = $roomStmt->fetchAll(PDO::FETCH-ASSOC);
 
-    $existingRooms->execute('SELECT roomId, room FROM room  WHERE room=:room')->fetchAll(PDO::FETCH-ASSOC);
+    // $existingRooms->execute('SELECT roomId, room FROM room  WHERE room=:room')->fetchAll(PDO::FETCH-ASSOC);
 
 
 
