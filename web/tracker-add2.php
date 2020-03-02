@@ -19,10 +19,10 @@ $lastName = htmlspecialchars($_POST['lastName']);  // **************************
 $room_id = 1;
 $owner_id = 1;
 
-// $storeQuery = 'SELECT storeName FROM store';
-// $storeStmt = $db->prepare($storeQuery);
-// $executeSuccess = $storeStmt->execute();
-// $existingStoresInTable = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
+$storeQuery = 'SELECT storeName FROM store';
+$storeStmt = $db->prepare($storeQuery);
+$executeSuccess = $storeStmt->execute();
+$existingStoresInTable = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
 // // If store table empty, add new store
 // if (empty($existingStoresInTable)) {
