@@ -19,7 +19,7 @@ $lastName = htmlspecialchars($_POST['lastName']);  // **************************
 $room_id = 1;
 $owner_id = 1;
 
-$storeQuery = 'SELECT storeName FROM store';
+$storeQuery = 'SELECT storename FROM store';
 $storeStmt = $db->prepare($storeQuery);
 $executeSuccess = $storeStmt->execute();
 $existingStoresInTable = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
