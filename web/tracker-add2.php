@@ -4,20 +4,20 @@ require('dbConnect.php');
 $db = get_db();
 console.log('starting tracker-add2.php');
 
-// // get the data from the POST
-// $itemDescription = htmlspecialchars($_POST['description']);
-// $model = htmlspecialchars($_POST['model']);
-// $serialNumber = htmlspecialchars($_POST['serialNumber']);
-// $purchasePrice = htmlspecialchars($_POST['purchasePrice']);
-// $purchaseDate = htmlspecialchars($_POST['purchaseDate']);
-// $storeName = htmlspecialchars($_POST['storeName']);  // *************************** Need to look up key if already existing ****
-// $room = htmlspecialchars($_POST['room']);  // *************************** Need to look up key if already existing ****
-// $firstName = htmlspecialchars($_POST['firstName']);  // *************************** Need to look up key if already existing ****
-// $lastName = htmlspecialchars($_POST['lastName']);  // *************************** Need to look up key if already existing ****
+// get the data from the POST
+$itemDescription = htmlspecialchars($_POST['description']);
+$model = htmlspecialchars($_POST['model']);
+$serialNumber = htmlspecialchars($_POST['serialNumber']);
+$purchasePrice = htmlspecialchars($_POST['purchasePrice']);
+$purchaseDate = htmlspecialchars($_POST['purchaseDate']);
+$storeName = htmlspecialchars($_POST['storeName']);  // *************************** Need to look up key if already existing ****
+$room = htmlspecialchars($_POST['room']);  // *************************** Need to look up key if already existing ****
+$firstName = htmlspecialchars($_POST['firstName']);  // *************************** Need to look up key if already existing ****
+$lastName = htmlspecialchars($_POST['lastName']);  // *************************** Need to look up key if already existing ****
 
-// // $store_id = 1;
-// $room_id = 1;
-// $owner_id = 1;
+// $store_id = 1;
+$room_id = 1;
+$owner_id = 1;
 
 // $storeQuery = 'SELECT storeName FROM store';
 // $storeStmt = $db->prepare($storeQuery);
