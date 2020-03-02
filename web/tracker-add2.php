@@ -2,7 +2,7 @@
 /* make connection to DB */
 require('dbConnect.php');
 $db = get_db();
-
+console.log('starting tracker-add2.php');
 
 // get the data from the POST
 $itemDescription = htmlspecialchars($_POST['description']);
@@ -26,6 +26,7 @@ $existingStoresInTable = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
 // If store table empty, add new store
 if (empty($existingStoresInTable)) {
+    console.log('In the empty IF statement');
     // Add to DB
     $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
     $statement = $db->prepare($query);
@@ -35,6 +36,7 @@ if (empty($existingStoresInTable)) {
 
     $store_id = $db->lastInsertId(store_storeId_seq);
 } else {
+    console.log('in the not empty ELSE statement');
     // check for existing store ID
     $query = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
     $stmt = $db->prepare($query);
@@ -42,6 +44,7 @@ if (empty($existingStoresInTable)) {
     $existingStore = $stmt->fetchAll(PDO::FETCH-ASSOC);
 
     if (empty($existingStore)) {
+        console.log('in the empty store IF statement');
         // Add to DB
         $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
         $statement = $db->prepare($query);
@@ -51,12 +54,14 @@ if (empty($existingStoresInTable)) {
 
         $store_id = $db->lastInsertId(store_storeId_seq);
     } else {
+        console.log('in the empty store ELSE statement');
         foreach ($existingStore as $store) {
             $storeId = $store['storeId'];
         }
     }
 }
 
+console.log('out of the checking phase');
 
 try
 {
