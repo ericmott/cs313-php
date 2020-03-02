@@ -55,7 +55,7 @@ if (empty($existingStoresInTable)) {
             $storeId = $store['storeId'];
         }
     }
-
+}
 
 
 try
