@@ -19,10 +19,10 @@ $lastName = htmlspecialchars($_POST['lastName']);  // **************************
 $room_id = 1;
 $owner_id = 1;
 
-$storeQuery = 'SELECT storename FROM store';
-$storeStmt = $db->prepare($storeQuery);
-$executeSuccess = $storeStmt->execute();
-$existingStoresInTable = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
+// $storeQuery = 'SELECT storename FROM store';
+// $storeStmt = $db->prepare($storeQuery);
+// $executeSuccess = $storeStmt->execute();
+// $existingStoresInTable = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
 // // If store table empty, add new store
 // if (empty($existingStoresInTable)) {
@@ -36,29 +36,31 @@ $existingStoresInTable = $storeStmt->fetchAll(PDO::FETCH-ASSOC);
 
 //     $store_id = $db->lastInsertId(store_storeId_seq);
 // } else {
-//     console.log('in the not empty ELSE statement');
-//     // check for existing store ID
-//     $query = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
-//     $stmt = $db->prepare($query);
-//     $stmt->execute();
-//     $existingStore = $stmt->fetchAll(PDO::FETCH-ASSOC);
+    console.log('in the not empty ELSE statement');
+    // check for existing store ID
+    $query = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
+    $stmt = $db->prepare($query);
+    // add bind
+    $stmt->bindValue(':storeName', $storeName);
+    $stmt->execute();
+    $existingStore = $stmt->fetchAll(PDO::FETCH-ASSOC);
 
-//     if (empty($existingStore)) {
-//         console.log('in the empty store IF statement');
-//         // Add to DB
-//         $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
-//         $statement = $db->prepare($query);
+    if (empty($existingStore)) {
+        console.log('in the empty store IF statement');
+        // Add to DB
+        $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
+        $statement = $db->prepare($query);
         
-//         $statement->bindValue(':storeName', $storeName);
-//         $statement->execute();
+        $statement->bindValue(':storeName', $storeName);
+        $statement->execute();
 
-//         $store_id = $db->lastInsertId(store_storeId_seq);
-//     } else {
-//         console.log('in the empty store ELSE statement');
-//         foreach ($existingStore as $store) {
-//             $storeId = $store['storeId'];
-//         }
-//     }
+        $store_id = $db->lastInsertId(store_storeId_seq);
+    } else {
+        console.log('in the empty store ELSE statement');
+        foreach ($existingStore as $store) {
+            $storeId = $store['storeId'];
+        }
+    }
 // }
 
 console.log('out of the checking phase');
