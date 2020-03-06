@@ -67,15 +67,7 @@ console.log('out of the checking phase');
 
 try
 {
-    // ****************************************************
-    // ****************************************************
-
-    // $storeExists = false;
-    $roomExists = false;
-    $ownerExists = false;
-
-    
-
+   
     /* *** Add Item to DB *** */
     $query = 'INSERT INTO item(itemDescription, model, serialNumber, purchasePrice, purchaseDate, store_id, owner_id, room_id) VALUES(:itemDescription, :model, :serialNumber, :purchasePrice, :purchaseDate, :store_id, :owner_id, :room_id)';
 	$statement = $db->prepare($query);
