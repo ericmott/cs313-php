@@ -15,7 +15,7 @@ $room = htmlspecialchars($_POST['room']);  // *************************** Need t
 $firstName = htmlspecialchars($_POST['firstName']);  // *************************** Need to look up key if already existing ****
 $lastName = htmlspecialchars($_POST['lastName']);  // *************************** Need to look up key if already existing ****
 
-// $store_id = 1;
+$store_id = 1;
 $room_id = 1;
 $owner_id = 1;
 
