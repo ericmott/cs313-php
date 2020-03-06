@@ -2,7 +2,7 @@
 /* make connection to DB */
 require('dbConnect.php');
 $db = get_db();
-console.log('starting tracker-add.php');
+
 
 // get the data from the POST
 $itemDescription = htmlspecialchars($_POST['description']);
@@ -51,11 +51,8 @@ try
 
 	$statement->execute();
 
-    console.log('store name ' $storeName);
-    console.log('pre-assign storeId ' $store_id);
 	// get the new store id
     $store_id = $db->lastInsertId(store_storeId_seq);
-    console.log('post-assign storeId ' $store_id);
     // ***************** END TEST END TEST END TEST *** */
 
     /* *** Add Owner to DB *** */  // *************************** Need to look up key if already existing ****
