@@ -37,13 +37,13 @@ $owner_id = 1;
 //     $store_id = $db->lastInsertId(store_storeId_seq);
 // } else {
     console.log('in the not empty ELSE statement');
-    // check for existing store ID
-    $query = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
-    $stmt = $db->prepare($query);
-    // add bind
-    $stmt->bindValue(':storeName', $storeName);
-    $stmt->execute();
-    $existingStore = $stmt->fetchAll(PDO::FETCH-ASSOC);
+    // // check for existing store ID
+    // $query = 'SELECT storeId, storeName FROM store WHERE storeName = :storeName';
+    // $stmt = $db->prepare($query);
+    // // add bind
+    // $stmt->bindValue(':storeName', $storeName);
+    // $stmt->execute();
+    // $existingStore = $stmt->fetchAll(PDO::FETCH-ASSOC);
 
     // if (empty($existingStore)) {
     //     console.log('in the empty store IF statement');
