@@ -45,22 +45,22 @@ $owner_id = 1;
     $stmt->execute();
     $existingStore = $stmt->fetchAll(PDO::FETCH-ASSOC);
 
-    if (empty($existingStore)) {
-        console.log('in the empty store IF statement');
-        // Add to DB
-        $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
-        $statement = $db->prepare($query);
+    // if (empty($existingStore)) {
+    //     console.log('in the empty store IF statement');
+    //     // Add to DB
+    //     $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
+    //     $statement = $db->prepare($query);
         
-        $statement->bindValue(':storeName', $storeName);
-        $statement->execute();
+    //     $statement->bindValue(':storeName', $storeName);
+    //     $statement->execute();
 
-        $store_id = $db->lastInsertId(store_storeId_seq);
-    } else {
-        console.log('in the empty store ELSE statement');
-        foreach ($existingStore as $store) {
-            $storeId = $store['storeId'];
-        }
-    }
+    //     $store_id = $db->lastInsertId(store_storeId_seq);
+    // } else {
+    //     console.log('in the empty store ELSE statement');
+    //     foreach ($existingStore as $store) {
+    //         $storeId = $store['storeId'];
+    //     }
+    // }
 // }
 
 console.log('out of the checking phase');
