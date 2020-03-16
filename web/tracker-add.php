@@ -16,9 +16,9 @@ $firstName = htmlspecialchars($_POST['firstName']);  // ************************
 $lastName = htmlspecialchars($_POST['lastName']);  // *************************** Need to look up key if already existing ****
 
 
-$storeId = 0;
-$roomId = 0;
-$ownedById = 0;
+$storeId = 99999;
+$roomId = 99999;
+$ownedById = 99999;
 
 // ******* TEST TEST TEST **************
 // foreach ($stores as $store) {
