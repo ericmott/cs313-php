@@ -45,9 +45,14 @@ try
 
     if (empty($newStoreName)) {
         //Add to DB
-        $addStoreStatement = $db->prepare('CALL addStore (:storeName)');
-        $addStoreStatement->bindParam(':storeName', $storeName);
-        $executeSuccess = $addStoreStatement->execute();
+        // $addStoreStatement = $db->prepare('CALL addStore (:storeName)');
+        // $addStoreStatement->bindParam(':storeName', $storeName);
+        // $executeSuccess = $addStoreStatement->execute();
+
+        $query = 'INSERT INTO store(storeName) VALUES(:storeName)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':storeName', $storeName);
+        $statement->execute();
     }
     // Get storeId (Primary Key)
     $addstoreIdStatement = $db->prepare('SELECT storeId FROM store WHERE storeName = :storeName');
@@ -64,9 +69,14 @@ try
 
     if (empty($newRoomName)) {
         //Add to DB
-        $addRoomStatement = $db->prepare('CALL addRoom (:room)');
-        $addRoomStatement->bindParam(':room', $room);
-        $executeSuccess = $addRoomStatement->execute();
+        // $addRoomStatement = $db->prepare('CALL addRoom (:room)');
+        // $addRoomStatement->bindParam(':room', $room);
+        // $executeSuccess = $addRoomStatement->execute();
+
+        $query = 'INSERT INTO room(room) VALUES(:room)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':room', $room);
+        $statement->execute();
     }
     // Get roomId (Primary Key)
     $addRoomIdStatement = $db->prepare('SELECT roomId FROM room WHERE room = :room');
@@ -84,10 +94,16 @@ try
 
     if (empty($newOwner)) {
         //Add to DB
-        $addOwnerStatement = $db->prepare('CALL addOwnedBy (:firstName, :lastName)');
-        $ownerStatement->bindParam(':firstName', $firstName);
-        $ownerStatement->bindParam(':lastName', $lastName);
-        $executeSuccess = $addOwnerStatement->execute();
+        // $addOwnerStatement = $db->prepare('CALL addOwnedBy (:firstName, :lastName)');
+        // $ownerStatement->bindParam(':firstName', $firstName);
+        // $ownerStatement->bindParam(':lastName', $lastName);
+        // $executeSuccess = $addOwnerStatement->execute();
+
+        $query = 'INSERT INTO ownedBy(firstName, lastName) VALUES(:firstName, lastName)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':firstName', $firstName);
+        $statement->bindValue(':lastName', $lastName);
+        $statement->execute();
     }
     // Get ownedById (Primary Key)
     $addOwnerIdStatement = $db->prepare('SELECT ownedById FROM ownedBy WHERE firstName = :firstName and lastName = :lastName');
