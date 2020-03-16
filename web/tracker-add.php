@@ -15,6 +15,11 @@ $room = htmlspecialchars($_POST['room']);  // *************************** Need t
 $firstName = htmlspecialchars($_POST['firstName']);  // *************************** Need to look up key if already existing ****
 $lastName = htmlspecialchars($_POST['lastName']);  // *************************** Need to look up key if already existing ****
 
+
+$storeId = 0;
+$roomId = 0;
+$ownedById = 0;
+
 // ******* TEST TEST TEST **************
 // foreach ($stores as $store) {
 //     $existingStoreId = $store['storeId'];
