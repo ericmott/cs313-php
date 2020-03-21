@@ -15,7 +15,7 @@ function searchphotos() {
     };
     // xhttp.open("GET", "https://api.nasa.gov/planetary/search?api_key=blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf&q=" + movie, true);
     // xhttp.open("GET", "https://images-api.nasa.gov/api_key=" + API_KEY + "?q=" + movie, true);
-    xhttp.open("GET", "https://images-api.nasa.gov/api_key=blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf?q=" + movie, true);
+    xhttp.open("GET", "https://images-api.nasa.gov/api_key=blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf?q=" + photo, true);
     xhttp.send();
     
     
