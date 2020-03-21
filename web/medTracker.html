@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Medication Tracker - Login</title>
+    <link rel="stylesheet" href="cs313-styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Medication Tracker</h1>
+        <hr>
+        <h1>Login</h1>
+        <hr>
+    </header>
+
+    <main>
+        <form action="medList.php" method="POST" class="entry-form"> <!-- Need to change class -->
+            <div>
+                <!-- Item Description -->
+                <p>User Name:
+                    <input type="text" placeholder="username" id="username" name="username">
+                </p>
+            </div>
+            <div>
+                <!-- Model -->
+                <p>Password:
+                    <input type="password" placeholder="password" id="password" name="password">
+                </p>
+            </div>
+            
+            <div class="container-1b">
+                <div>
+                    <button type="submit" name="submit" id="submit" onsubmit="password_validation()">Login</button>
+                </div>
+                <div>
+                    <button type="reset" onreset="" onclick="reset_form()">Clear</button>
+                </div>
+            </div>
+        </form>
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="blu-wht">
+            <p style="margin-left:10px;">&copy; Eric Mott, 2020</p>
+        </div>
+    </footer>
+
+    <!-- <script src="prove07-scripts.js"></script> -->
+
+</body>
+
+</html>
