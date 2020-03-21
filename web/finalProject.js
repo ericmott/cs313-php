@@ -1,6 +1,6 @@
 // const API_KEY = blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf;
 
-function searchmovie() {
+function searchphotos() {
     let photo = document.getElementById("subject").value;
     var xhttp = new XMLHttpRequest();
     console.log(photo);
