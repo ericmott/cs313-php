@@ -30,7 +30,7 @@ function searchphotos() {
     fetch('api.openweathermap.org/data/2.5/forecast?id=524901&APPID=' + API_KEY)
     .then(response => response.json())
     .then(subjectList => {
-        console.log(subjectList)
+        console.log("test" + subjectList)
         .catch(() => console.log("Can't access " + url + " response. Blocked by browser?"));
     });
 }
