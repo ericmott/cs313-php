@@ -9,19 +9,35 @@
 
 // const API_KEY = blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf;
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = "https://images-api.nasa.gov/api_key=blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf?q=mars";
+// const proxyurl = "https://cors-anywhere.herokuapp.com/";
+// const url = "https://images-api.nasa.gov/api_key=blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf?q=mars";
 
+// function searchphotos() {
+//     let photo = document.getElementById("subject").value;
+//     // fetch('https://images-api.nasa.gov/api_key=blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf?q=mars')
+//     fetch(proxyurl + url)
+//     .then(response => response.json())
+//     .then(subjectList => {
+//         console.log(subjectList)
+//         .catch(() => console.log("Can't access " + url + " response. Blocked by browser?"));
+//     });
+// }
+
+
+const API_KEY = "cde63ddba624c40e28ed5fd2016c0";
 function searchphotos() {
-    let photo = document.getElementById("subject").value;
-    // fetch('https://images-api.nasa.gov/api_key=blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf?q=mars')
-    fetch(proxyurl + url)
+    fetch('api.openweathermap.org/data/2.5/forecast?id=524901&APPID=' + API_KEY)
     .then(response => response.json())
     .then(subjectList => {
         console.log(subjectList)
         .catch(() => console.log("Can't access " + url + " response. Blocked by browser?"));
     });
 }
+
+
+
+
+
 //     let photo = document.getElementById("subject").value;
 //     var xhttp = new XMLHttpRequest();
 //     console.log(photo);
