@@ -23,15 +23,41 @@
 //     });
 // }
 
-let city = document.getElementById("subject").value;
+// let city = document.getElementById("subject").value;
+// console.log(city);
+const API_KEY = "cde63ddba12a624c40e28ed5fd2016c0";
 
-const API_KEY = "cde63ddba624c40e28ed5fd2016c0";
 function searchphotos() {
-    // fetch('https://api.openweathermap.org/data/2.5/weather?id=' + city + '&appid=524901&APPID=cde63ddba624c40e28ed5fd2016c0')
-    fetch('https://api.openweathermap.org/data/2.5/weather?id=reno,nv&appid=524901&APPID=cde63ddba624c40e28ed5fd2016c0')
+    let city = document.getElementById("subject").value;
+
+    var name = document.querySelector('.name');
+    var desc = document.querySelector('.desc');
+    var temp = document.querySelector('.temp');
+
+    console.log(city);
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&units=imperial&appid='+API_KEY)
+    // fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=cde63ddba12a624c40e28ed5fd2016c0')
+    // fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=cde63ddba12a624c40e28ed5fd2016c0')
     .then(response => response.json())
-    .then(data => console.log("test" + data))
-    .catch(err => console.log("Can't access " + url + " response. Blocked by browser?"))
+    // .then(data => console.log(data))
+    .then(data => {
+    //     var nameValue = data['name'];
+    //     var tempValue = data['main']['temp'];
+    //     var descValue = data['weather'][0]['description'];
+        var nameValue = data['name'];
+        var tempValue = data['main']['temp'];
+        var descValue = data['weather'][0]['description'];
+
+        name.innerHTML = nameValue;
+        temp.innerHTML = tempValue;
+        desc.innerHTML = descValue;
+        // console.log(data);
+        // console.log(nameValue);
+        // console.log(tempValue);
+        // console.log(descValue);
+    })
+
+    .catch(err => console.log("Can't access " + city + ".  Check city name."))
 };
 
 
