@@ -27,7 +27,7 @@ let city = document.getElementById("subject").value;
 
 const API_KEY = "cde63ddba624c40e28ed5fd2016c0";
 function searchphotos() {
-    fetch('api.openweathermap.org/data/2.5/weather?id=' + city + '&appid=524901&APPID=cde63ddba624c40e28ed5fd2016c0')
+    fetch('https://api.openweathermap.org/data/2.5/weather?id=' + city + '&appid=524901&APPID=cde63ddba624c40e28ed5fd2016c0')
     .then(response => response.json())
     .then(subjectList => {
         console.log("test" + subjectList)
