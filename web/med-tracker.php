@@ -74,7 +74,7 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $genericName = $med['genericName'];
             echo "<br>".$genericName;
             $medDescription = $med['medDescription'];
-            echo "<br>".$medDescription
+            echo "<br>".$medDescription;
             $docFirstName = $med['docFirstName'];
             echo "<br>".$docFirstName;
             $docLastName = $med['docLastName'];
