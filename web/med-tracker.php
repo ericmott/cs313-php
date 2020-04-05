@@ -45,28 +45,7 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </header>
 
     <main>
-        <div class="text-main-gry-blk">
-        <?php
-        // foreach ($db->('SELECT itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item') as $row) {
-        //     echo "<div>" "Item: " . $row["itemDescription"] . " | Model: " . $row["model"] . " | S/N: " . $row["serialNumber"] . " | Purchase Price $" . $row["purchasePrice"] . " | Date Purchased: " . $row["purchaseDate"];
-        //     echo '<br/>';
-        // }
-        foreach ($meds as $med) {
-            $medId = $med['medId'];
-            $medication = $med['medication'];
-            $dosage = $med['dosage'];
-            $frequency = $med['frequency'];
-            $startDate = $med['startDate'];
-            $endDate = $med['endDate'];
-            $reason = $med['reason'];
-            $medData_id = $med['medData_id'];
-            $doc_id = $med['doc_id'];
-            
-
-            echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
-        }
-        ?>
-        </div>
+       
         <div class="container-1">
             <!-- Add Item Button -->
             <form action="tracker-add.html">
