@@ -11,9 +11,7 @@ $db = get_db();
 // $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // get data from item, doctor, and med_data tables
-$query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id, medName, brandName, genericName, medDescription, docFirstName, docLastName, specialty, address_1, address_2, city, stateAbrev, zip, phone FROM medication
-LEFT OUTER JOIN med_data ON (medication.medData_id = med_data.medDataId)
-LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docId)';
+$query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id FROM medication';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -66,35 +64,8 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $medData_id = $med['medData_id'];
             echo "<br>".$medData_id;
             $doc_id = $med['doc_id'];
-            echo "<br>".$doc_id;
-            $medName = $med['medName'];
-            echo "<br>".$medName;
-            $brandName = $med['brandName'];
-            echo "<br>".$brandName;
-            $genericName = $med['genericName'];
-            echo "<br>".$genericName;
-            $medDescription = $med['medDescription'];
-            echo "<br>".$medDescription;
-            $docFirstName = $med['docFirstName'];
-            echo "<br>".$docFirstName;
-            $docLastName = $med['docLastName'];
-            echo "<br>".$docLastName;
-            $specialty = $med['specialty'];
-            echo "<br>".$specialty;
-            $address_1 = $med['address_1'];
-            echo "<br>".$address_1;
-            $address_2 = $med['address_2'];
-            echo "<br>".$address_2;
-            $city = $med['city'];
-            echo "<br>".$city;
-            $stateAbrev = $med['stateAbrev'];
-            echo "<br>".$stateAbrev;
-            $zip = $med['zip'];
-            echo "<br>".$zip;
-            $phone = $med['phone'];
-            echo "<br>".$phone;
             
-            echo "<li>Medication: $medication | Dosage: $dosage | Frequency: $frequency | Reason: $reason | Doctor: $docLastName | Doc ID: $doc_id";
+            echo "<li>Medication: $medication | Dosage: $dosage | Frequency: $frequency | Reason: $reason | Doc ID: $doc_id";
         }
         ?>
         </div>
