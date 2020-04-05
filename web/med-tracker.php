@@ -52,14 +52,14 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //     echo '<br/>';
         // }
         foreach ($meds as $med) {
-            $medId = $med['medId'];
+            $medId = $med['medid'];
             $medication = $med['medication'];
             $dosage = $med['dosage'];
             $frequency = $med['frequency'];
-            $startDate = $med['startDate'];
-            $endDate = $med['endDate'];
+            $startDate = $med['startdate'];
+            $endDate = $med['enddate'];
             $reason = $med['reason'];
-            $medData_id = $med['medData_id'];
+            $medData_id = $med['meddata_id'];
             $doc_id = $med['doc_id'];
             // $genericName = $med['genericName'];
             // $docLastName = $med['docLastName'];
