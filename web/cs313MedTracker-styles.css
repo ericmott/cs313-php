@@ -1,0 +1,62 @@
+
+/* a:visited {
+    color: white;
+    padding: 3px 3px;
+    text-decoration: none;
+}
+a:hover {
+    background-color: slategray;
+    color: black;
+}
+
+.text-main-gry-blk {
+    padding: 10px;
+    background-color: lightgray;
+    color: black;
+}
+
+.container-1 {
+    display: flex;
+    justify-content: space-around;
+    flex-basis: 10%;
+    background-color: lightgray;
+}
+.container-1b {
+    display: flex;
+    justify-content: space-around;
+    flex-basis: 10%;
+    background-color: rgb(5, 9, 68);
+}
+.container-2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 10%;
+    background-color: rgb(177, 177, 189);
+}
+.container-2 div{
+    flex-wrap: nowrap;
+}
+.charge {
+    padding-top: 5px;
+    padding-right: 2px;
+    margin-right: 3px;
+}
+
+.info1 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 2px;
+    padding: 2px;
+}
+
+.info2 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: right;
+}
+
+@media screen and (max-width: 430px){
+    h1 {
+        font-size: 25px;
+    }
+} */

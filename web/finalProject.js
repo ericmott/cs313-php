@@ -27,7 +27,7 @@
 // console.log(city);
 const API_KEY = "cde63ddba12a624c40e28ed5fd2016c0";
 
-function searchphotos() {
+function cityWeather() {
     let city = document.getElementById("subject").value;
 
     var name = document.querySelector('.name');
@@ -41,9 +41,7 @@ function searchphotos() {
     .then(response => response.json())
     // .then(data => console.log(data))
     .then(data => {
-    //     var nameValue = data['name'];
-    //     var tempValue = data['main']['temp'];
-    //     var descValue = data['weather'][0]['description'];
+        console.log(data);
         var nameValue = data['name'];
         var tempValue = data['main']['temp'];
         var descValue = data['weather'][0]['description'];
@@ -51,7 +49,7 @@ function searchphotos() {
         name.innerHTML = nameValue;
         temp.innerHTML = tempValue;
         desc.innerHTML = descValue;
-        // console.log(data);
+        
         // console.log(nameValue);
         // console.log(tempValue);
         // console.log(descValue);
@@ -61,6 +59,38 @@ function searchphotos() {
 };
 
 
+
+
+function searchphotos() {
+    let topic = document.getElementById("topic").value;
+
+    var name = document.querySelector('.name');
+    var desc = document.querySelector('.desc');
+    var temp = document.querySelector('.temp');
+
+    console.log(topic);
+    fetch('https://images-api.nasa.gov/search?q='+topic)
+    // api_key=blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf
+    // fetch('https://api.nasa.gov/planetary/search?api_key=blE2mjygUav0KvjXibZo0sUVug6jPprSj2GdP6lf&q='+topic)
+    .then(response => response.json())
+    // .then(data => console.log(data))
+    .then(data => {
+        console.log(data);
+        // var nameValue = data['name'];
+        // var tempValue = data['main']['temp'];
+        // var descValue = data['weather'][0]['description'];
+
+        // name.innerHTML = nameValue;
+        // temp.innerHTML = tempValue;
+        // desc.innerHTML = descValue;
+        
+        // console.log(nameValue);
+        // console.log(tempValue);
+        // console.log(descValue);
+    })
+
+    .catch(err => console.log("Can't access " + topic + ".  Check topic name."))
+};
 
 
 
