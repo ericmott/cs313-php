@@ -9,13 +9,13 @@ $db = get_db();
 // $stmt->execute();
 // $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// // Get data from item table
-// $query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medInfo, doc_id FROM medication
-//      LEFT OUTER JOIN doctor ON (medication.medData_id = med_data.medDataId)
-//      LEFT OUTER JOIN room ON (medication.doc_id = doctor.docId)';
-// $stmt = $db->prepare($query);
-// $stmt->execute();
-// $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Get data from item table
+$query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medInfo, doc_id FROM medication
+     LEFT OUTER JOIN doctor ON (medication.medData_id = med_data.medDataId)
+     LEFT OUTER JOIN med_date ON (medication.doc_id = doctor.docId)';
+$stmt = $db->prepare($query);
+$stmt->execute();
+$meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -46,7 +46,26 @@ $db = get_db();
 
     <main>
         <div class="text-main-gry-blk">
-       
+        <?php
+        // foreach ($db->('SELECT itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item') as $row) {
+        //     echo "<div>" "Item: " . $row["itemDescription"] . " | Model: " . $row["model"] . " | S/N: " . $row["serialNumber"] . " | Purchase Price $" . $row["purchasePrice"] . " | Date Purchased: " . $row["purchaseDate"];
+        //     echo '<br/>';
+        // }
+        foreach ($meds as $med) {
+            $medId = $med['medId'];
+            $medication = $med['medication'];
+            $dosage = $med['dosage'];
+            $frequency = $med['frequency'];
+            $startDate = $med['startDate'];
+            $endDate = $med['endDate'];
+            $reason = $med['reason'];
+            $medData_id = $med['medData_id'];
+            $doc_id = $med['doc_id'];
+            
+
+            echo "<li>Item: $itemDescription | Model: $model | S/N: $serialNumber | Purchase Price: $purchasePrice | Date Purchased: $purchaseDate | Purchased At: $storeName | Located: $room | Owner: $firstName $lastName";
+        }
+        ?>
         </div>
         <div class="container-1">
             <!-- Add Item Button -->
