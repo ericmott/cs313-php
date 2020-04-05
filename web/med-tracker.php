@@ -11,7 +11,7 @@ $db = get_db();
 // $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // get data from item, doctor, and med_data tables
-$query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id FROM medication';
+$query = 'SELECT medId, medication, dosage, frequency, reason, medData_id, doc_id FROM medication';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -46,26 +46,17 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <main>
         <div class="text-main-gry-blk">
         <?php
+        echo "<table><tr><th>Medication</th><th>Dosage</th><th>Frequency</th><th>Reason</th></tr>";
         foreach ($meds as $med) {
             $medId = $med['medId'];
-            echo $medId;
             $medication = $med['medication'];
-            echo "<br>".$medication;
             $dosage = $med['dosage'];
-            echo "<br>".$dosage;
             $frequency = $med['frequency'];
-            echo "<br>".$frequency;
-            $startDate = $med['startDate'];
-            echo "<br>".$startDate;
-            $endDate = $med['endDate'];
-            echo "<br>".$endDate;
             $reason = $med['reason'];
-            echo "<br>".$reason;
             $medData_id = $med['medData_id'];
-            echo "<br>".$medData_id;
             $doc_id = $med['doc_id'];
             
-            echo "<li>Medication: $medication | Dosage: $dosage | Frequency: $frequency | Reason: $reason | Doc ID: $doc_id";
+            echo "<tr><td>$medication</td><td>$dosage</td><td>$frequency</td><td>$reason</td>";
         }
         ?>
         </div>
