@@ -50,27 +50,27 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php
         foreach ($meds as $med) {
             echo $medId = $med['medId'];
-            echo $medication = $med['medication'];
-            echo $dosage = $med['dosage'];
-            echo $frequency = $med['frequency'];
-            echo $startDate = $med['startDate'];
-            echo $endDate = $med['endDate'];
-            echo $reason = $med['reason'];
-            echo $medData_id = $med['medData_id'];
-            echo $doc_id = $med['doc_id'];
-            echo $medName = $med['medName'];
-            echo $brandName = $med['brandName'];
-            echo $genericName = $med['genericName'];
-            echo $medDescription = $med['medDescription'];
-            echo $docFirstName = $med['docFirstName'];
-            echo $docLastName = $med['docLastName'];
-            echo $specialty = $med['specialty'];
-            echo $address_1 = $med['address_1'];
-            echo $address_2 = $med['address_2'];
-            echo $city = $med['city'];
-            echo $stateAbrev = $med['stateAbrev'];
-            echo $zip = $med['zip'];
-            echo $phone = $med['phone'];
+            "<br>" echo $medication = $med['medication'];
+            "<br>" echo $dosage = $med['dosage'];
+            "<br>" echo $frequency = $med['frequency'];
+            "<br>" echo $startDate = $med['startDate'];
+            "<br>" echo $endDate = $med['endDate'];
+            "<br>" echo $reason = $med['reason'];
+            "<br>" echo $medData_id = $med['medData_id'];
+            "<br>" echo $doc_id = $med['doc_id'];
+            "<br>" echo $medName = $med['medName'];
+            "<br>" echo $brandName = $med['brandName'];
+            "<br>" echo $genericName = $med['genericName'];
+            "<br>" echo $medDescription = $med['medDescription'];
+            "<br>" echo $docFirstName = $med['docFirstName'];
+            "<br>" echo $docLastName = $med['docLastName'];
+            "<br>" echo $specialty = $med['specialty'];
+            "<br>" echo $address_1 = $med['address_1'];
+            "<br>" echo $address_2 = $med['address_2'];
+            "<br>" echo $city = $med['city'];
+            "<br>" echo $stateAbrev = $med['stateAbrev'];
+            "<br>" echo $zip = $med['zip'];
+            "<br>" echo $phone = $med['phone'];
             
             echo "<li>Medication: $medication | Dosage: $dosage | Frequency: $frequency | Reason: $reason | Doctor: $docLastName | Doc ID: $doc_id";
         }
