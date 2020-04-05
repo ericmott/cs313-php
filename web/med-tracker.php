@@ -18,9 +18,7 @@ $db = get_db();
 // $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // get data from item, doctor, and med_data tables
-$query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id FROM medication
-LEFT OUTER JOIN med_data ON (medication.medData_id = med_data.medDataId)
-LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docId';
+$query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id FROM medication';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
