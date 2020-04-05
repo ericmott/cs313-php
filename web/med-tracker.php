@@ -65,7 +65,7 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
             // $docLastName = $med['docLastName'];
             
 
-            echo "<li>Medication: $medication | Dosage: $dosage | Frequency: $frequency | Start Date: $startDate | End Date: $endDate | Reason: $reason | Med ID: $medData_id | Doc ID: $doc_id";
+            // echo "<li>Medication: $medication | Dosage: $dosage | Frequency: $frequency | Start Date: $startDate | End Date: $endDate | Reason: $reason | Med ID: $medData_id | Doc ID: $doc_id";
         }
         ?>
         </div>
