@@ -2,24 +2,16 @@
 require('dbConnect.php');
 $db = get_db();
 
-// From the reading:
-// $stmt = $db->prepare('SELECT * FROM table WHERE id=:id AND name=:name');
-// $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-// $stmt->bindValue(':name', $name, PDO::PARAM_STR);
-// $stmt->execute();
-// $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// // Get data from item table
-// $query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id FROM medication
-//      LEFT OUTER JOIN med_date ON (medication.medData_id = med_data.medDataId)
-//      LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docId)';
+// // get data from item, doctor, and med_data tables
+// $query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medName, brandName, genericName, medDescription, docFirstName, docLastName, specialty, address_1, address_2, city, stateAbrev, zip, phone, medData_id, doc_id FROM medication
+// LEFT OUTER JOIN med_data ON (medication.medData_id = med_data.medDataId)
+// LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docId)';
 // $stmt = $db->prepare($query);
 // $stmt->execute();
 // $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // get data from item, doctor, and med_data tables
-$query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medName, brandName, genericName, medDescription, docFirstName, docLastName, specialty, address_1, address_2, city, stateAbrev, zip, phone, medData_id, doc_id FROM medication
-LEFT OUTER JOIN med_data ON (medication.medData_id = med_data.medDataId)
+$query = 'SELECT medId, medication, dosage, frequency, reason, docLastName, doc_id FROM medication
 LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docId)';
 $stmt = $db->prepare($query);
 $stmt->execute();
@@ -55,39 +47,31 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <main>
         <div class="text-main-gry-blk">
         <?php
-        // foreach ($db->('SELECT itemDescription, model, serialNumber, purchasePrice, purchaseDate FROM item') as $row) {
-        //     echo "<div>" "Item: " . $row["itemDescription"] . " | Model: " . $row["model"] . " | S/N: " . $row["serialNumber"] . " | Purchase Price $" . $row["purchasePrice"] . " | Date Purchased: " . $row["purchaseDate"];
-        //     echo '<br/>';
-        // }
         foreach ($meds as $med) {
             $medId = $med['medId'];
             $medication = $med['medication'];
             $dosage = $med['dosage'];
             $frequency = $med['frequency'];
-            $startDate = $med['startDate'];
-            $endDate = $med['endDate'];
+            // $startDate = $med['startDate'];
+            // $endDate = $med['endDate'];
             $reason = $med['reason'];
-            $medName = $med['medName'];
-            $brandName = $med['brandName'];
-            $genericName = $med['genericName'];
-            $medDescription = $med['medDescription'];
-            $docFirstName = $med['docFirstName'];
-            $docLastName = $med['docLastName'];
-            $specialty = $med['specialty'];
-            $address_1 = $med['address_1'];
-            $address_2 = $med['address_2'];
-            $city = $med['city'];
-            $stateAbrev = $med['stateAbrev'];
-            $zip = $med['zip'];
-            $phone = $med['phone'];
-            $medData_id = $med['medData_id'];
-            $doc_id = $med['doc_id']; 
+            // $medName = $med['medName'];
+            // $brandName = $med['brandName'];
             // $genericName = $med['genericName'];
-            // $docLastName = $med['docLastName'];
-            
+            // $medDescription = $med['medDescription'];
+            // $docFirstName = $med['docFirstName'];
+            $docLastName = $med['docLastName'];
+            // $specialty = $med['specialty'];
+            // $address_1 = $med['address_1'];
+            // $address_2 = $med['address_2'];
+            // $city = $med['city'];
+            // $stateAbrev = $med['stateAbrev'];
+            // $zip = $med['zip'];
+            // $phone = $med['phone'];
+            // $medData_id = $med['medData_id'];
+            $doc_id = $med['doc_id'];
 
-            echo "<li>Medication: $medication | Dosage: $dosage | Frequency: $frequency | Start Date: $startDate | End Date: $endDate | Reason: $reason | Doctor: $docLastName | Generic: $genericName | Med ID: $medData_id | Doc ID: $doc_id";
-            echo "<br><li>Medication: " . $med['medication'] . " | Dosage: " . $med['dosage'] . " | Frequency: " . $med['frequency'] . " | Start Date: " . $med['startDate'] . " | End Date: " . $med['endDate'] . " | Reason: " . $med['reason'] . " | Doctor: " . $med['docLastName'] . " | Generic: " . $med['genericName'] . " | Med ID: " . $med['medData_id'] . " | Doc ID: " . $med['doc_id'] . "<br>";
+            echo "<li>Medication: $medication | Dosage: $dosage | Frequency: $frequency | Reason: $reason | Doctor: $docLastName | Doc ID: $doc_id";
         }
         ?>
         </div>
