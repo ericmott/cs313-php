@@ -45,9 +45,7 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </header>
 
     <main>
-        <div class="text-main-gry-blk">
-        
-        </div>
+       
         <div class="container-1">
             <!-- Add Item Button -->
             <form action="tracker-add.html">
