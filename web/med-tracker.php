@@ -11,8 +11,8 @@ $db = get_db();
 
 // Get data from item table
 $query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id FROM medication
-     LEFT OUTER JOIN doctor ON (medication.medData_id = doctor.medDataId)
-     LEFT OUTER JOIN med_date ON (medication.doc_id = med_data.docId)';
+     LEFT OUTER JOIN med_date ON (medication.medData_id = med_data.medDataId)
+     LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docId)';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
