@@ -12,7 +12,7 @@ $db = get_db();
 
 // get data from item, doctor, and med_data tables
 $query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id, medName, brandName, genericName, medDescription, docFirstName, docLastName, specialty, address_1, address_2, city, stateAbrev, zip, phone FROM medication
-LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docId)
+LEFT OUTER JOIN med_data ON (medication.medData_id = med_data.medDataId)
 LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docId)';
 $stmt = $db->prepare($query);
 $stmt->execute();
