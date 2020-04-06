@@ -37,35 +37,18 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <main>
         <div class="text-main-gry-blk">
-            <ul>
-                <?php
-                foreach ($meds as $med) {
-                    $medId = $med['medId'];
-                    $medication = $med['medication'];
-                    $dosage = $med['dosage'];
-                    $frequency = $med['frequency'];
-                    $reason = $med['reason'];
-                    $medData_id = $med['medData_id'];
-                    $doc_id = $med['doc_id'];
-
-                    echo "<li><p>$medication, $dosage, $frequency - $reason</p></li>"
-
-                
-                
-                ?>
-            </ul>
         <?php
-        // echo "<table><tr><th>Medication</th><th>Dosage</th><th>Frequency</th><th>Reason</th></tr>";
-        // foreach ($meds as $med) {
-        //     $medId = $med['medId'];
-        //     $medication = $med['medication'];
-        //     $dosage = $med['dosage'];
-        //     $frequency = $med['frequency'];
-        //     $reason = $med['reason'];
-        //     $medData_id = $med['medData_id'];
-        //     $doc_id = $med['doc_id'];
+        echo "<table><tr><th>Medication</th><th>Dosage</th><th>Frequency</th><th>Reason</th></tr>";
+        foreach ($meds as $med) {
+            $medId = $med['medId'];
+            $medication = $med['medication'];
+            $dosage = $med['dosage'];
+            $frequency = $med['frequency'];
+            $reason = $med['reason'];
+            $medData_id = $med['medData_id'];
+            $doc_id = $med['doc_id'];
             
-        //     echo "<tr><td>$medication</td><td>$dosage</td><td>$frequency</td><td>$reason</td>";
+            echo "<tr><td>$medication</td><td>$dosage</td><td>$frequency</td><td>$reason</td></tr>";
         }
         ?>
         </div>
