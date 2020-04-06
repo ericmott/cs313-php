@@ -23,7 +23,7 @@ $reason = $med['reason'];
 $medData_id = $med['medData_id'];
 $doc_id = $med['doc_id'];
 
-var_dump($med);
+echo var_dump($med);
 ?>
 
 <!DOCTYPE html>
