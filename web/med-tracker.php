@@ -2,14 +2,6 @@
 require('dbConnect.php');
 $db = get_db();
 
-// // get data from item, doctor, and med_data tables
-// $query = 'SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medName, brandName, genericName, medDescription, docFirstName, docLastName, specialty, address_1, address_2, city, stateAbrev, zip, phone, medData_id, doc_id FROM medication
-// LEFT OUTER JOIN med_data ON (medication.medData_id = med_data.medDataId)
-// LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docId)';
-// $stmt = $db->prepare($query);
-// $stmt->execute();
-// $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 // get data from item, doctor, and med_data tables
 $query = 'SELECT medId, medication, dosage, frequency, reason, medData_id, doc_id FROM medication';
 $stmt = $db->prepare($query);
@@ -45,6 +37,23 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <main>
         <div class="text-main-gry-blk">
+            <ul>
+                <?php
+                foreach ($meds as $med) {
+                    $medId = $med['medId'];
+                    $medication = $med['medication'];
+                    $dosage = $med['dosage'];
+                    $frequency = $med['frequency'];
+                    $reason = $med['reason'];
+                    $medData_id = $med['medData_id'];
+                    $doc_id = $med['doc_id'];
+
+                    echo "<li><p>$medication, $dosage, $frequency - $reason</p></li>"
+
+                
+                
+                ?>
+            </ul>
         <?php
         echo "<table><tr><th>Medication</th><th>Dosage</th><th>Frequency</th><th>Reason</th></tr>";
         foreach ($meds as $med) {
