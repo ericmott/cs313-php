@@ -48,6 +48,7 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 echo "<tr><td><a href='med-details.php?medId=$medId'>$medication</a></td><td>$dosage</td><td>$frequency</td><td>$reason</td></tr>";
             }
             ?>
+            <h1>medId = <?php echo $medId ?></h1>
         </div>
         <div class="container-1">
             <!-- Add Medication Button -->
