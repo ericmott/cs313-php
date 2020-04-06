@@ -45,7 +45,7 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $medData_id = $med['medData_id'];
                 $doc_id = $med['doc_id'];
 
-                echo "<tr><td><a href='med-details.php?$medId'>$medication</a></td><td>$dosage</td><td>$frequency</td><td>$reason</td></tr>";
+                echo "<tr><td><a href='med-details.php?medId=$medId'>$medication</a></td><td>$dosage</td><td>$frequency</td><td>$reason</td></tr>";
             }
             ?>
         </div>
