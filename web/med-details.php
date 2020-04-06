@@ -14,16 +14,16 @@ $stmt = $db->prepare($query);
 $stmt->execute();
 $med = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$medId = $med['medId'];
-$medication = $med['medication'];
-$dosage = $med['dosage'];
-$frequency = $med['frequency'];
-$startDate = $med['startDate'];
-$reason = $med['reason'];
-$medData_id = $med['medData_id'];
-$doc_id = $med['doc_id'];
+// $medId = $med['medId'];
+// $medication = $med['medication'];
+// $dosage = $med['dosage'];
+// $frequency = $med['frequency'];
+// $startDate = $med['startDate'];
+// $reason = $med['reason'];
+// $medData_id = $med['medData_id'];
+// $doc_id = $med['doc_id'];
 
-echo var_dump($med);
+var_dump($med);
 ?>
 
 <!DOCTYPE html>
