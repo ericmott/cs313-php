@@ -34,6 +34,6 @@ var_dump($med);
     <title>Medication Details</title>
 </head>
 <body>
-    
+    <h1>Welcome to the med-details page!!!</h1>
 </body>
 </html>
