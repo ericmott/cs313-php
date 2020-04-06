@@ -3,7 +3,7 @@ require('dbConnect.php');
 $db = get_db();
 
 // Select medID, medication, dosage, frequency, reason, medData_id, doc_id FROM medication
-$query = 'Select medID, medication, dosage, frequency, reason, medData_id, doc_id FROM medication';
+$query = 'Select medId, medication, dosage, frequency, reason, medData_id, doc_id FROM medication';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
