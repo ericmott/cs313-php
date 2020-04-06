@@ -10,7 +10,7 @@ require('dbConnect.php');
 $db = get_db();
 
 // Select all medication details
-$query = sprintf("SELECT medId, medication, dosage, frequency, startDate, reason, medData_id, doc_id FROM medication WHERE medID = '%s'", pg_escape_int($trimMedId));
+$query = "SELECT medId, medication, dosage, frequency, startDate, reason, medData_id, doc_id FROM medication WHERE medID = 2";
 $stmt = $db->prepare($query);
 $stmt->execute();
 $med = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -30,6 +30,8 @@ $med = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // $doc_id = $med['doc_id'];
 
 var_dump($med);
+var_dump($passMedId);
+var_dump($trimMedId);
 ?>
 
 <!DOCTYPE html>
