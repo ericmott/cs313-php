@@ -61,8 +61,11 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         echo "<tr><td><a href='med-details.php?medId=$medId'>$medication</a></td><td>$dosage</td><td>$frequency</td><td>$reason</td><td><a href='med-docDetails.php?docId=$doc_id'>Dr. $docLastName</a></td></tr>";
                 }
                ?>
-
                 </tbody>
+                <tfoot>
+                    <tr>
+                    </tr>
+                </tfoot>
             </table>
             
         </div>
