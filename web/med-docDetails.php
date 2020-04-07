@@ -10,8 +10,9 @@ require('dbConnect.php');
 $db = get_db();
 
 // Select all medication details
-$query = 'SELECT docid, docfirstname, doclastname, specialty, address_1, address_2, city, stateAbrev, zip, phone FROM doctor WHERE $passDocId = docid';
-$stmt = $db->prepare($query);
+$query = 'SELECT docid, docfirstname, doclastname, specialty, address_1, address_2, city, stateAbrev, zip, phone FROM doctor WHERE docid = :id';
+$stmt->bindValue(':id', $passDocId, PDO::PARAM_INT);
+// $stmt = $db->prepare($query);
 $stmt->execute();
 $doc = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
