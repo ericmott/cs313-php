@@ -15,15 +15,15 @@ $stmt = $db->prepare($query);
 $stmt->execute();
 $med = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$medId = $med['medId'];
-$medication = $med['medication'];
-$dosage = $med['dosage'];
-$frequency = $med['frequency'];
-$startDate = $med['startDate'];
-$endDate = $med['endDate'];
-$reason = $med['reason'];
-$medData_id = $med['medData_id'];
-$doc_id = $med['doc_id'];
+$medId = $med[0]['medId'];
+$medication = $med[0]['medication'];
+$dosage = $med[0]['dosage'];
+$frequency = $med[0]['frequency'];
+$startDate = $med[0]['startDate'];
+$endDate = $med[0]['endDate'];
+$reason = $med[0]['reason'];
+$medData_id = $med[0]['medData_id'];
+$doc_id = $med[0]['doc_id'];
 
 ?>
 
