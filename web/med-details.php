@@ -58,6 +58,8 @@ $doc_id = $med[0]['doc_id'];
             <input type="button" name="" id="" value="Return to Med List">
         </div>
         </form>
+        <h2>start date: <?php echo var_dump($startDate) ?></h2>
+        <h3>frequency: <?php echo var_dump($frequency) ?></h3>
         
     </div>
 </body>
