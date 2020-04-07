@@ -3,7 +3,7 @@ require('dbConnect.php');
 $db = get_db();
 
 // Select medID, medication, dosage, frequency, reason, medData_id, doc_id FROM medication
-$query = 'SELECT medId, medication, dosage, frequency, reason, medData_id, doc_id, doclastname, docid FROM medication
+$query = 'SELECT medid, medication, dosage, frequency, reason, meddata_id, doc_id, doclastname, docid FROM medication
  LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docid)';
 $stmt = $db->prepare($query);
 $stmt->execute();
@@ -45,9 +45,10 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $reason = $med['reason'];
                 $medData_id = $med['meddata_id'];
                 $doc_id = $med['doc_id'];
+                $docLastName = $med['doclastname'];
                 $docId - $med['docid'];
 
-                echo "<tr><td><a href='med-details.php?medId=$medId'>$medication</a></td><td>$dosage</td><td>$frequency</td><td>$reason</td><td><a href='med-docDetails.php?docId=$docId'>Dr. $doctor</a></td></tr>";
+                echo "<tr><td><a href='med-details.php?medId=$medId'>$medication</a></td><td>$dosage</td><td>$frequency</td><td>$reason</td><td><a href='med-docDetails.php?docId=$docId'>Dr. $docLastName</a></td></tr>";
             }
             ?>
         </div>

@@ -1,6 +1,6 @@
 <?php
 if (!isset($_GET['medId'])){
-    die("Error, med ID not set");
+    die("Error, doc ID not set");
 }
 
 $passMedId = htmlspecialchars($_GET['medId']);
@@ -10,7 +10,7 @@ require('dbConnect.php');
 $db = get_db();
 
 // Select all medication details
-$query = "SELECT medId, medication, dosage, frequency, startDate, reason, medData_id, doc_id FROM medication WHERE medID = $passMedId";
+$query = "SELECT medid, medication, dosage, frequency, startDate, reason, meddata_id, doc_id FROM medication WHERE medID = $passMedId";
 $stmt = $db->prepare($query);
 $stmt->execute();
 $med = $stmt->fetchAll(PDO::FETCH_ASSOC);
