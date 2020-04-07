@@ -38,7 +38,7 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php
             echo "<table><tr><th>Medication</th><th>Dosage</th><th>Frequency</th><th>Reason</th></tr>";
             foreach ($meds as $med) {
-                $medId = $med['medId'];
+                $medId = $med['medid'];
                 $medication = $med['medication'];
                 $dosage = $med['dosage'];
                 $frequency = $med['frequency'];
