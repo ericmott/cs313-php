@@ -35,22 +35,36 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <main>
         <div>
-            <?php
-            echo "<tr><td>Medication</td><td>Dosage</td><td>Frequency</td><td>Reason</td><td>Doctor</td></tr>";
-            foreach ($meds as $med) {
-                $medId = $med['medid'];
-                $medication = $med['medication'];
-                $dosage = $med['dosage'];
-                $frequency = $med['frequency'];
-                $reason = $med['reason'];
-                $medData_id = $med['meddata_id'];
-                $doc_id = $med['doc_id'];
-                // $docId - $med['docid'];
-                $docLastName = $med['doclastname'];
+            <table>
+                <thead>
+                    <tr>
+                        <th>Medication</th>
+                        <th>Dosage</th>
+                        <th>Frequency</th>
+                        <th>Reason</th>
+                        <th>Doctor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach ($meds as $med) {
+                        $medId = $med['medid'];
+                        $medication = $med['medication'];
+                        $dosage = $med['dosage'];
+                        $frequency = $med['frequency'];
+                        $reason = $med['reason'];
+                        $medData_id = $med['meddata_id'];
+                        $doc_id = $med['doc_id'];
+                        // $docId - $med['docid'];
+                        $docLastName = $med['doclastname'];
 
-                echo "<tr><td><a href='med-details.php?medId=$medId'>$medication</a></td><td>$dosage</td><td>$frequency</td><td>$reason</td><td><a href='med-docDetails.php?docId=$doc_id'>Dr. $docLastName</a></td></tr>";
-            }
-            ?>
+                        echo "<tr><td><a href='med-details.php?medId=$medId'>$medication</a></td><td>$dosage</td><td>$frequency</td><td>$reason</td><td><a href='med-docDetails.php?docId=$doc_id'>Dr. $docLastName</a></td></tr>";
+                }
+               ?>
+
+                </tbody>
+            </table>
+            
         </div>
         <div class="container-1">
             <!-- Add Medication Button -->
