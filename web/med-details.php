@@ -36,6 +36,7 @@ $doc_id = $med['doc_id'];
 </head>
 <body>
     <h1>Medication Details</h1>
+    <p>med: <?php echo $medication ?></p>
     <div>
         <form action=""></form>
         <div>
