@@ -45,7 +45,7 @@ $doc_id = $med[0]['doc_id'];
             <label for="dosage">Dosage: </label>
             <input type="text" id="dosage" name="dosage" value="<?php echo $dosage; ?>"><br>
             <label for="frequency">Frequency: </label>
-            <input type="date" id="frequency" name="frequency" value="<?php echo $frequency; ?>"><br>
+            <input type="text" id="frequency" name="frequency" value="<?php echo $frequency; ?>"><br>
             <label for="startDate">Start Date: </label>
             <input type="date" id="startDate" name="startDate" value="<?php echo $startDate; ?>"><br>
             <label for="endDate">End Date: </label>
