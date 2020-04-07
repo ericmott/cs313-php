@@ -10,3 +10,5 @@ $reason = htmlspecialchars(_POST['reason']);
 
 echo "$medication\n";
 echo $reason;
+
+?>
