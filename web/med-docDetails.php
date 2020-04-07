@@ -10,10 +10,10 @@ require('dbConnect.php');
 $db = get_db();
 
 // Select all medication details
-$query = "SELECT medid, medication, dosage, frequency, startDate, reason, meddata_id, doc_id FROM medication WHERE medID = $passMedId";
+$query = "SELECT docid, docfirstname, doclastname, specialty, address_1, address_2, city, stateAbrev, zip, phone FROM doctor WHERE medID = $passDocId";
 $stmt = $db->prepare($query);
 $stmt->execute();
-$med = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$doc = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // $a = trim($name); 
 // $query = "SELECT surname FROM employee WHERE name= '" . $a . "';"; 
@@ -29,9 +29,9 @@ $med = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // $medData_id = $med['medData_id'];
 // $doc_id = $med['doc_id'];
 
-var_dump($med);
-var_dump($passMedId);
-var_dump($trimMedId);
+var_dump($doc);
+var_dump($passDocId);
+var_dump($trimDocId);
 ?>
 
 <!DOCTYPE html>
