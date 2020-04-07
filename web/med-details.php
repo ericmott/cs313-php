@@ -15,7 +15,7 @@ $stmt = $db->prepare($query);
 $stmt->execute();
 $med = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$medId = $med[0]['medId'];
+$medId = $med[0]['medid'];
 $medication = $med[0]['medication'];
 $dosage = $med[0]['dosage'];
 $frequency = $med[0]['frequency'];
