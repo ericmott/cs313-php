@@ -1,10 +1,10 @@
 <?php
-if (!isset($_GET['medId'])){
+if (!isset($_GET['docId'])){
     die("Error, doc ID not set");
 }
 
-$passMedId = htmlspecialchars($_GET['medId']);
-$trimMedId = trim($passMedId);
+$passDocId = htmlspecialchars($_GET['docId']);
+$trimDocId = trim($passMedId);
 
 require('dbConnect.php');
 $db = get_db();
