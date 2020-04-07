@@ -3,7 +3,7 @@ require('dbConnect.php');
 $db = get_db();
 
 // Select medID, medication, dosage, frequency, reason, medData_id, doc_id FROM medication
-$query = 'SELECT medId, medication, dosage, frequency, reason, meddata_id, doc_id, doclastname, docId FROM medication
+$query = 'SELECT medId, medication, dosage, frequency, reason, meddata_id, doc_id, doclastname, docid FROM medication
  LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docid)';
 $stmt = $db->prepare($query);
 $stmt->execute();
