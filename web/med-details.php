@@ -15,23 +15,16 @@ $stmt = $db->prepare($query);
 $stmt->execute();
 $med = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// $a = trim($name); 
-// $query = "SELECT surname FROM employee WHERE name= '" . $a . "';"; 
-// $query = "SELECT surname FROM emploee WHERE name= '" . $name . "';";
-// $query = sprintf("SELECT surname FROM emploee WHERE name = '%s'", pg_escape_string($name));
+$medId = $med['medId'];
+$medication = $med['medication'];
+$dosage = $med['dosage'];
+$frequency = $med['frequency'];
+$startDate = $med['startDate'];
+$endDate = $med['endDate'];
+$reason = $med['reason'];
+$medData_id = $med['medData_id'];
+$doc_id = $med['doc_id'];
 
-// $medId = $med['medId'];
-// $medication = $med['medication'];
-// $dosage = $med['dosage'];
-// $frequency = $med['frequency'];
-// $startDate = $med['startDate'];
-// $reason = $med['reason'];
-// $medData_id = $med['medData_id'];
-// $doc_id = $med['doc_id'];
-
-var_dump($med);
-var_dump($passMedId);
-var_dump($trimMedId);
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +35,23 @@ var_dump($trimMedId);
     <title>Medication Details</title>
 </head>
 <body>
-    <h1>Welcome to the med-details page!!!</h1>
+    <h1>Medication Details</h1>
+    <div>
+        <form action=""></form>
+        <div>
+                    <label for="medication">Medication: </label>
+                    <input type="text" id="medication" value="<?php $medication ?>"><br>
+                    <label for="dosage">Dosage: </label>
+                    <input type="text" id="dosage" value="<?php $dosage ?>"><br>
+                    <label for="startDate">Frequency: </label>
+                    <input type="date" id="frequency" value="<?php $frequency ?>"><br>
+                    <label for="startDate">Start Date: </label>
+                    <input type="date" id="startDate" value="<?php $startDate ?>"><br>
+                    <label for="endDate">End Date: </label>
+                    <input type="date" id="endDate" value="<?php $endDate ?>"><br>
+                    <label for="docName">Reason: </label>
+                    <input type="text" id="reason" value="<?php $reason ?>"><br>
+                </div>
+    </div>
 </body>
 </html>
