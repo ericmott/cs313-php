@@ -11,4 +11,5 @@ $reason = htmlspecialchars($_POST['reason']);
 echo "$medication\n";
 echo $reason;
 
+echo var_dump($medication);
 ?>

@@ -47,7 +47,7 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 // $docId - $med['docid'];
                 $docLastName = $med['doclastname'];
 
-                echo "<tr><td><a href='med-details.php?medId=$medId'>$medication</a></td><td>$dosage</td><td>$frequency</td><td>$reason</td><td><a href='med-docDetails.php?docId=$doc_id'>Dr. $docLastName</a></td><td>medId: $medId</td><td>docId: $doc_id</td><td>doc_id: $doc_id</td></tr>";
+                echo "<tr><td><a href='med-details.php?medId=$medId'>$medication</a></td><td>$dosage</td><td>$frequency</td><td>$reason</td><td><a href='med-docDetails.php?docId=$doc_id'>Dr. $docLastName</a></td></tr>";
                 var_dump($medId);
                 var_dump($docId);
                 var_dump($medication);
