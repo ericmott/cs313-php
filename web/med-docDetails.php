@@ -4,7 +4,7 @@ if (!isset($_GET['docId'])){
 }
 
 $passDocId = htmlspecialchars($_GET['docId']);
-$trimDocId = trim($passMedId);
+$trimDocId = trim($passDocId);
 
 require('dbConnect.php');
 $db = get_db();
@@ -15,6 +15,11 @@ $stmt = $db->prepare($query);
 // $stmt->bindValue(':id', $passDocId, PDO::PARAM_INT);
 $stmt->execute();
 $doc = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// $query = "SELECT medid, medication, dosage, frequency, startDate, reason, medData_id, doc_id FROM medication WHERE medid = $passMedId";
+// $stmt = $db->prepare($query);
+// $stmt->execute();
+// $med = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // $a = trim($name); 
 // $query = "SELECT surname FROM employee WHERE name= '" . $a . "';"; 
