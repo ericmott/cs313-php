@@ -40,17 +40,17 @@ $doc_id = $med['doc_id'];
         <form action=""></form>
         <div>
                     <label for="medication">Medication: </label>
-                    <input type="text" id="medication" value="<?php $medication ?>"><br>
+                    <input type="text" id="medication" value="<?php echo $medication ?>"><br>
                     <label for="dosage">Dosage: </label>
-                    <input type="text" id="dosage" value="<?php $dosage ?>"><br>
+                    <input type="text" id="dosage" value="<?php echo $dosage ?>"><br>
                     <label for="startDate">Frequency: </label>
-                    <input type="date" id="frequency" value="<?php $frequency ?>"><br>
+                    <input type="date" id="frequency" value="<?php echo $frequency ?>"><br>
                     <label for="startDate">Start Date: </label>
-                    <input type="date" id="startDate" value="<?php $startDate ?>"><br>
+                    <input type="date" id="startDate" value="<?php echo $startDate ?>"><br>
                     <label for="endDate">End Date: </label>
-                    <input type="date" id="endDate" value="<?php $endDate ?>"><br>
+                    <input type="date" id="endDate" value="<?php echo $endDate ?>"><br>
                     <label for="docName">Reason: </label>
-                    <input type="text" id="reason" value="<?php $reason ?>"><br>
+                    <input type="text" id="reason" value="<?php echo $reason ?>"><br>
                 </div>
     </div>
 </body>
