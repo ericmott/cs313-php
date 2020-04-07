@@ -3,7 +3,8 @@ require('dbConnect.php');
 $db = get_db();
 
 // get data from item, doctor, and med_data tables
-$query = 'SELECT medId, medication, dosage, frequency, reason, medData_id, doc_id FROM medication';
+$query = 'SELECT medId, medication, dosage, frequency, reason, medData_id, doc_id, doclastname FROM medication
+ LEFT OUTER JOIN doctor ON (medication.doc_id = doctor.docId)';
 $stmt = $db->prepare($query);
 $stmt->execute();
 $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -45,10 +46,11 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $dosage = $med['dosage'];
             $frequency = $med['frequency'];
             $reason = $med['reason'];
-            $medData_id = $med['medData_id'];
+            $medData_id = $med['meddata_id'];
             $doc_id = $med['doc_id'];
+            $docLastName = $med['doclastname'];
             
-            echo "<tr><td>$medication</td><td>$dosage</td><td>$frequency</td><td>$reason</td></tr>";
+            echo "<tr><td>$medication</td><td>$dosage</td><td>$frequency</td><td>$reason</td><td>Dr: $docLastName</td></tr>";
         }
         ?>
         </div>
