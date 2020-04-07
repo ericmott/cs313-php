@@ -36,6 +36,7 @@ $doc_id = $med[0]['doc_id'];
 </head>
 <body>
     <h1>Medication Details</h1>
+    <?php echo var_dump($med); ?>
     <div>
         <form action="med-updateMed.php">
         <div>
