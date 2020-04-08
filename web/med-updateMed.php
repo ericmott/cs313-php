@@ -8,20 +8,23 @@ $startDate = htmlspecialchars($_POST['startDate']);
 $endDate = htmlspecialchars($_POST['endDate']);
 $reason = htmlspecialchars($_POST['reason']);
 
-echo "$medId\n";
-echo "$medication\n";
-echo "$dosage\n";
-echo "$frequency\n";
-echo "$startDate\n";
-echo "$endDate\n";
-echo $reason;
+$medData_id = 1; // *********************** need to link ******************
+$doc_id = 1; // *********************** need to link ******************
+
+// echo "$medId\n";
+// echo "$medication\n";
+// echo "$dosage\n";
+// echo "$frequency\n";
+// echo "$startDate\n";
+// echo "$endDate\n";
+// echo $reason;
 
 require('dbConnect.php');
 $db = get_db();
 
 // Add new medication to table          **** Need to link medData_id and doc_id ***
-$addData = 'UPDATE medication SET medication = :medication, dosage = :dosage, frequency = :frequency, startDate = :startDate, endDate = :endDate, reason = :reason, medData_id = :medData_id, doc_id = :doc_id WHERE medid = :medid';
-$stmt = $db->prepare($addData);
+$updateData = 'UPDATE medication SET medication = :medication, dosage = :dosage, frequency = :frequency, startDate = :startDate, endDate = :endDate, reason = :reason, medData_id = :medData_id, doc_id = :doc_id WHERE medid = :medid';
+$stmt = $db->prepare($updateData);
 $stmt->bindValue(':medication', $medication, PDO::PARAM_STR);
 $stmt->bindValue(':dosage', $dosage, PDO::PARAM_STR);
 $stmt->bindValue(':frequency', $frequency, PDO::PARAM_STR);
@@ -33,8 +36,8 @@ $stmt->bindValue(':doc_id', $doc_id, PDO::PARAM_INT);
 $stmt->bindValue(':medid', $medId, PDO::PARAM_INT);
 $stmt->execute();
 
-// $new_page = "medTracker-list.php";
+$new_page = "medTracker-list.php";
 
-// header("Location: $new_page");
-// die();
+header("Location: $new_page");
+die();
 ?>
