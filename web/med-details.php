@@ -55,12 +55,9 @@ $doc_id = $med[0]['doc_id'];
         </div>
         <div>
             <input type="submit" name="" id="" value="Update Medication">
-            <input type="button" name="" id="" value="Return to Med List">
+            <a href='medTracker-list.php'><input type="button" name="" id="" value="Return to Med List"></a>
         </div>
         </form>
-        
     </div>
-    <h1>Start Date: <?php echo $startDate; ?></h1>
-    <h1>medData_id: <?php echo $medData_id; ?></h1>
 </body>
 </html>
