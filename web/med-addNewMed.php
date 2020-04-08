@@ -23,7 +23,7 @@ $db = get_db();
 
 // Add new medication to table          **** Need to link medData_id and doc_id ***
 $addMed = 'INSERT INTO medication (medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id) VALUES (:medication, :dosage, :frequency, :startDate, :endDate, :reason, :medData_id, :doc_id)';
-$stmt = $db->prepare($addMed);
+$stmt = $db->prepare("$addMed");
 // $stmt = $db->prepare('INSERT INTO medication (medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id) VALUES (:medication, :dosage, :frequency, :startDate, :endDate, :reason, :medData_id, :doc_id)');
 $stmt->bindValue(':medication', $medication, PDO::PARAM_STR);
 $stmt->bindValue(':dosage', $dosage, PDO::PARAM_STR);
