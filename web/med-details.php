@@ -56,6 +56,7 @@ $doc_id = $med[0]['doc_id'];
         <div>
             <input type="submit" name="" id="" value="Update Medication">
             <a href='medTracker-list.php'><input type="button" name="" id="" value="Return to Med List"></a>
+            <a href='med-deleteMed.php?medId=$medID'><input type="button" name="" id="" value="Delete Medication"></a>
         </div>
         </form>
     </div>
