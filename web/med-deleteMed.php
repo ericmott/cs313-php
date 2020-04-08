@@ -14,9 +14,9 @@ require('dbConnect.php');
 $db = get_db();
 
 // Delete medication from table
-$deleteData = 'DELETE FROM medication WHERE medId = :medId';
+$deleteData = 'DELETE FROM medication WHERE medid = :medid';
 $stmt = $db->prepare($deleteData);
-$stmt->bindValue(':medId', $medId, PDO::PARAM_INT);
+$stmt->bindValue(':medid', $medId, PDO::PARAM_INT);
 $stmt->execute();
 
 $new_page = "medTracker-list.php";
