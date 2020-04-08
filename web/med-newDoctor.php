@@ -43,7 +43,7 @@
             <input type="text" id="docFirstName" name="docFirstName" value="" placeholder="First Name"><br>
             <label for="docLastName">Doctor's last name: </label>
             <input type="text" id="docLastName" name="docLastName" value="" placeholder="Last Name"><br>
-            <label for="specialty">Frequency: </label>
+            <label for="specialty">Specialty: </label>
             <input type="text" id="specialty" name="specialty" value="" placeholder="Family Medicine"><br>
             <label for="address_1">Address: </label>
             <input type="text" id="address_1" name="address_1" value="" placeholder="Address"><br>
