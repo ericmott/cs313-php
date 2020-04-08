@@ -54,7 +54,7 @@
         </div>
         <div>
             <input type="submit" name="" id="" value="Add Medication">
-            <input type="button" name="" id="" value="Return to Med List">
+            <a href='medTracker-list.php'><input type="button" name="" id="" value="Return to Med List"></a>
         </div>
         </form>
         
