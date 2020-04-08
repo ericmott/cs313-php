@@ -23,8 +23,8 @@ $phone = htmlspecialchars($_POST['phone']);
 require('dbConnect.php');
 $db = get_db();
 
-// Add new medication to table          **** Need to link medData_id and doc_id ***
-$addData = 'doctor (docFirstName, docLastName, specialty, address_1, address_2, city, stateAbrev, zip, phone) VALUES (:docFirstName, :docLastName, :specialty, :address_1, :address_2, :city, :stateAbrev, :zip, :phone)';
+// Add new doctor to table
+$addData = 'INSERT INTO doctor (docFirstName, docLastName, specialty, address_1, address_2, city, stateAbrev, zip, phone) VALUES (:docFirstName, :docLastName, :specialty, :address_1, :address_2, :city, :stateAbrev, :zip, :phone)';
 $stmt = $db->prepare($addData);
 // $stmt = $db->prepare('INSERT INTO medication (medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id) VALUES (:medication, :dosage, :frequency, :startDate, :endDate, :reason, :medData_id, :doc_id)');
 $stmt->bindValue(':docFirstName', $docFirstName, PDO::PARAM_STR);
