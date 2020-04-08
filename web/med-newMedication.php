@@ -37,7 +37,7 @@
 <body>
     <h1>Add Medication</h1>
     <div>
-        <form method="POST" action="med-addMed.php">
+        <form method="POST" action="med-addNewMed.php">
         <div>
             <label for="medication">Medication: </label>
             <input type="text" id="medication" name="medication" value="" placeholder="Ibuprofen"><br>
