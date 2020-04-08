@@ -63,6 +63,7 @@ $phone = $doc[0]['phone'];
         <div>
             <input type="submit" name="" id="" value="Update Doctor">
             <a href='medTracker-list.php'><input type="button" name="" id="" value="Return to Med List"></a>
+            <?php echo "<a href='med-deleteDoc.php?docId=$docId'><input type='button' name='' id='' value='Delete Doctor'></a>"; ?>
         </div>
         </form>
     </div>
