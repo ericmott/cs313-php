@@ -35,7 +35,7 @@ $stmt->bindValue(':address_2', $eaddress_2ndDate, PDO::PARAM_STR);
 $stmt->bindValue(':city', $city, PDO::PARAM_STR);
 $stmt->bindValue(':stateAbrev', $stateAbrev, PDO::PARAM_STR);
 $stmt->bindValue(':zip', $zip, PDO::PARAM_INT);
-$stmt->bindValue(':phone', $phone, PDO::PARAMPARAM_STR_INT);
+$stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
 $stmt->execute();
 
 $new_page = "medTracker-list.php";
