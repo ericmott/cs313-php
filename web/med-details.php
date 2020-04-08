@@ -10,7 +10,7 @@ require('dbConnect.php');
 $db = get_db();
 
 // Select all medication details
-$query = "SELECT medId, medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id FROM medication WHERE medid = $passMedId";
+$query = "SELECT medId, medication, dosage, frequency, startdate, enddate, reason, meddata_id, doc_id FROM medication WHERE medid = $passMedId";
 $stmt = $db->prepare($query);
 $stmt->execute();
 $med = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -19,10 +19,10 @@ $medId = $med[0]['medid'];
 $medication = $med[0]['medication'];
 $dosage = $med[0]['dosage'];
 $frequency = $med[0]['frequency'];
-$startDate = $med[0]['startDate'];
-$endDate = $med[0]['endDate'];
+$startDate = $med[0]['startdate'];
+$endDate = $med[0]['enddate'];
 $reason = $med[0]['reason'];
-$medData_id = $med[0]['medData_id'];
+$medData_id = $med[0]['meddata_id'];
 $doc_id = $med[0]['doc_id'];
 
 ?>
@@ -61,5 +61,6 @@ $doc_id = $med[0]['doc_id'];
         
     </div>
     <h1>Start Date: <?php echo $startDate; ?></h1>
+    <h1>medData_id: <?php echo $medData_id; ?></h1>
 </body>
 </html>
