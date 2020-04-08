@@ -60,5 +60,6 @@ $doc_id = $med[0]['doc_id'];
         </form>
         
     </div>
+    <h1>Start Date: <?php echo $startDate; ?></h1>
 </body>
 </html>
