@@ -1,7 +1,7 @@
 <?php
 
-if(!isset($_GET['medId'])){
-    dir("Error, medId not specified!");
+if (!isset($_GET['medId'])){
+    die("Error, medId not specified!");
 }
 
 $medId = htmlspecialchars($_GET['medId']);
