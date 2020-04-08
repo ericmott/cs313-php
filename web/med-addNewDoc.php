@@ -26,7 +26,6 @@ $db = get_db();
 // Add new doctor to table
 $addData = 'INSERT INTO doctor (docFirstName, docLastName, specialty, address_1, address_2, city, stateAbrev, zip, phone) VALUES (:docFirstName, :docLastName, :specialty, :address_1, :address_2, :city, :stateAbrev, :zip, :phone)';
 $stmt = $db->prepare($addData);
-// $stmt = $db->prepare('INSERT INTO medication (medication, dosage, frequency, startDate, endDate, reason, medData_id, doc_id) VALUES (:medication, :dosage, :frequency, :startDate, :endDate, :reason, :medData_id, :doc_id)');
 $stmt->bindValue(':docFirstName', $docFirstName, PDO::PARAM_STR);
 $stmt->bindValue(':docLastName', $dosdocLastNameage, PDO::PARAM_STR);
 $stmt->bindValue(':specialty', $specialty, PDO::PARAM_STR);
@@ -43,6 +42,4 @@ $new_page = "medTracker-list.php";
 header("Location: $new_page");
 die();
 
-INSERT INTO doctor (docFirstName, docLastName, specialty, address_1, address_2, city, stateAbrev, zip, phone) 
-VALUES ('docFirst-1', 'docLast-1', 'specialty-1', 'address_1-1', 'address_2-1', 'city-1', '01', 11111, 'phone1');
 ?>
