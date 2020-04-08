@@ -33,8 +33,8 @@ $stmt->bindValue(':doc_id', $doc_id, PDO::PARAM_INT);
 $stmt->bindValue(':medid', $medId, PDO::PARAM_INT);
 $stmt->execute();
 
-$new_page = "medTracker-list.php";
+// $new_page = "medTracker-list.php";
 
-header("Location: $new_page");
-die();
+// header("Location: $new_page");
+// die();
 ?>
