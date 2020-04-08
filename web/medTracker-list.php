@@ -71,7 +71,7 @@ $meds = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="container-1">
             <!-- Add Medication Button -->
-            <form action="add-medication.php">
+            <form action="med-newMedication.php">
                 <button class="button-std" type="submit" title="Add New Medication">Add Medication</button>
             </form>
         </div>
