@@ -25,6 +25,7 @@ $reason = $med[0]['reason'];
 $medData_id = $med[0]['meddata_id'];
 $doc_id = $med[0]['doc_id'];
 
+$med_id = $medId;
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +57,7 @@ $doc_id = $med[0]['doc_id'];
         <div>
             <input type="submit" name="" id="" value="Update Medication">
             <a href='medTracker-list.php'><input type="button" name="" id="" value="Return to Med List"></a>
-            <a href='med-deleteMed.php?medId='$medId><input type="button" name="" id="" value="Delete Medication"></a>
+            <a href='med-deleteMed.php?medId=$med_id'><input type="button" name="" id="" value="Delete Medication"></a>
         </div>
         </form>
     </div>
